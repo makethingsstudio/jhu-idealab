@@ -1,0 +1,45 @@
+{% for challenge in challenges %}
+  {% if loop.first %}
+  <h2 class="current-challenges__heading">Current Challenges</h2>
+  <ul class="current-challenges__list challenges">
+  {% endif %}
+  <li class="challenges__item challenge" id="challenge-{{ challenge.id }}">
+    <div class="challenge__header media">
+        <div class="media__body">
+          <h2 class="challenge__heading">{{ challenge.name }}</h2>
+          {{ challenge.description|truncate(50)}}
+          <div class="button-group challenge__actions">
+            <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&discussionID={{ challenge.id|url_encode }}" title="Submit an Idea" class="button cta">Submit an Idea</a>
+            <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" title="Vote Today" class="button button-group__last cta--outline">Vote Today</a>
+          </div>
+        </div>
+    </div>
+    {% for idea in challenge.ideas %}
+        {% if loop.first %}
+        <ul class="challenge__content ideas-list ideas-list--full">
+        {% endif %}
+        <li class="ideas__item idea" id="idea-{{ idea.campaignId }}-{{ idea.id }}">
+          <h2 class="idea__heading idea__content">
+            <a href="{{ idea.url }}" title="Link">
+            {{ idea.title }}
+            </a>
+          </h2>
+          <div class="actions idea__actions">
+            <a class="idea__action" href="#" title="{{ idea.voteCount }} Votes">
+              {{ idea.voteCount }} <i class="icon icon--small icon-vote">Votes</i>
+            </a>
+            <a class="idea__action" href="#" title="{{ idea.commentCount }} Comments">
+              {{ idea.commentCount }} <i class="icon icon--small icon-comments">Comments</i>
+            </a>
+          </div>
+        </li>
+        {% if loop.last %}
+        </ul>
+        {% endif %}
+    {% endfor %}
+  </li>
+  {% if loop.last %}
+  </ul>
+  {% endif %}
+{% endfor %}
+

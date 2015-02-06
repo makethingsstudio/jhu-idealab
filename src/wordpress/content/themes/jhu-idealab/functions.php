@@ -1,8 +1,9 @@
 <?php
 
-function post_remove ()
+foreach (glob( dirname(__FILE__) . "/functions/*.php") as $filename)
 {
-  remove_menu_page('edit.php');
+    include $filename;
 }
+
 
 add_action('admin_menu', 'post_remove');
