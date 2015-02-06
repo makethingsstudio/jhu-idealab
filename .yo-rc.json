@@ -1,0 +1,19 @@
+{
+  "generator-sass": {
+    "syntax": "scss",
+    "base": "src/sass",
+    "files": [
+      "master"
+    ],
+    "partials": [
+      "base",
+      "states",
+      "site-settings",
+      "mixins"
+    ],
+    "folders": [
+      "layout",
+      "module"
+    ]
+  }
+}

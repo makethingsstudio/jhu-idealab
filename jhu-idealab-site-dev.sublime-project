@@ -1,0 +1,18 @@
+{
+	"folders":
+	[
+		{
+      "name": "src",
+			"path": "src/"
+		},
+    {
+      "name": "project",
+      "path": ".",
+      "folder_exclude_patterns": [
+        "node_modules",
+        "src",
+        // ".tmp",
+      ]
+    }
+	]
+}
