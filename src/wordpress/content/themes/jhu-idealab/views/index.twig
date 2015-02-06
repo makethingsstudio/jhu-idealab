@@ -1,0 +1,19 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+    <div class="container">
+      <article class="entry-single">
+        <header class="entry-single__header">
+          <h1>{{ post.title }}</h1>
+        </header>
+        <div class="main-content">
+          {{ post.content }}
+        </div>
+        <section class="sub-content">
+          <div class="current-challenges current-challenges--list current-challenges--sidebar">
+          {% include 'includes/_current-challenges.twig' %}
+          </div>
+        </section>
+      </article>
+    </div>
+{% endblock %}
