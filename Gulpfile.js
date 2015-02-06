@@ -74,6 +74,9 @@ var PLUMBER_OPTIONS = {
 };
 
 
+var PROXY_URL = 'http://idealab.lvh.me:8888/';
+
+
 gulp.task('styles', function () {
     return gulp.src([
         'src/sass/*.scss',
@@ -84,6 +87,7 @@ gulp.task('styles', function () {
         .pipe($.sass())
         .pipe($.plumber.stop())
         .pipe(gulp.dest('.tmp/styles'))
+        .pipe(gulp.dest('src/wordpress/content/themes/jhu-idealab/styles'))
         .pipe($.size({gzip: true}));
 });
 
@@ -200,12 +204,8 @@ gulp.task('serve', ['jekyll-rebuild'], function () {
     // Note: this uses an unsigned certificate which on first access
     //       will present a certificate warning in the browser.
     // https: true,
-    server: {
-      baseDir: ['.tmp', 'src'],
-      routes: {
-          '/bower_components': './bower_components',
-      }
-    }
+    proxy: PROXY_URL,
+
   });
 });
 
@@ -255,6 +255,7 @@ gulp.task('watch', ['serve'], function () {
     ], reload);
 
     gulp.watch(['src/static/templates/*.html', 'src/static/templates/_includes/*.html', 'src/static/templates/_layouts/*.html'], ['jekyll-rebuild']);
+    gulp.watch('src/wordpress/**/*.php', reload);
     gulp.watch('src/sass/**/*.scss', ['styles']);
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('bower.json', ['wiredep']);
