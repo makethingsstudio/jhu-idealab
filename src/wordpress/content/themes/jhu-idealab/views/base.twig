@@ -1,15 +1,15 @@
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 l-home" lang=""> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 l-home" lang=""> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9 l-home" lang=""> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js l-home" lang=""> <!--<![endif]-->
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 {{ html_class }}" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 {{ html_class }}" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 {{ html_class }}" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js {{ html_class }}" lang=""> <!--<![endif]-->
   <head>
     <title>{{wp_title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css" />
     <!-- endbower -->
-    <link rel="stylesheet" href="/styles/master.css">
+    <link rel="stylesheet" href="/content/themes/jhu-idealab/styles/master.css">
     {% block head %}
 
     {% endblock %}
@@ -30,19 +30,15 @@
       {% include 'includes/_site-footer.twig' %}
     </div>
 
-
-
-
-
     <!-- bower:js -->
     <script src="/bower_components/zepto/zepto.js"></script>
     <script src="/bower_components/loadcss/loadCSS.js"></script>
     <!-- endbower -->
     <script>
       // load a file
-      loadCSS( "/styles/webfonts.css" );
+      loadCSS( "/content/themes/jhu-idealab/styles/webfonts.css" );
     </script>
-    <noscript><link href="/styles/webfonts.css" rel="stylesheet"></noscript>
-    <script src="/scripts/main.js"></script>
+    <noscript><link href="/content/themes/jhu-idealab/styles/webfonts.css" rel="stylesheet"></noscript>
+
   </body>
 </html>
