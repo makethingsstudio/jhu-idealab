@@ -1,0 +1,48 @@
+.cta {
+  &:link,
+  &:active,
+  &:visited {
+    border: 2px solid transparent;
+    color: palette(white, ebb);
+    background-color: palette(green);
+  }
+
+  &:hover,
+  &:focus {
+    color: palette(green);
+    background-color: palette(white, ebb);
+  }
+}
+
+.cta--rev {
+  &:link,
+  &:active,
+  &:visited {
+    border: 2px solid transparent;
+    color: palette(green);
+    background-color: palette(white, ebb);
+  }
+
+  &:hover,
+  &:focus {
+    color: palette(white, ebb);
+    background-color: palette(green);
+  }
+}
+
+
+.cta--outline {
+  &:link,
+  &:active,
+  &:visited {
+    border: 2px solid palette(green);
+    color: palette(green);
+    background-color: palette(white, ebb);
+  }
+
+  &:hover,
+  &:focus {
+    color: palette(white, ebb);
+    background-color: palette(green);
+  }
+}

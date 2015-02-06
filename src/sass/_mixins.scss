@@ -1,0 +1,22 @@
+// ==========================================================================
+//   Palette
+//   Grabs a palette and tone from color map
+//   $palettes: (
+//     color: (
+//       tone: value
+//     )
+//   )
+// ==========================================================================
+
+ @function palette($base, $aspect: base, $palette: $palettes) {
+     @return map-get(map-get($palette, $base), $aspect);
+ }
+
+
+
+
+
+@function math-strip-units($number) {
+  @if $number == 0 { @return 0 }
+  @return $number / ($number * 0 + 1);
+}

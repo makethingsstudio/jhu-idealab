@@ -1,0 +1,50 @@
+.current-challenges {
+  color: palette(blue, cloudburst);
+}
+
+.current-challenges__heading {
+  margin-bottom: $vs;
+  font-size: 24px;
+  line-height: 1;
+}
+
+.current-challenges--full {
+  @include respond-to('medium and above') {
+    @include pad(2);
+  }
+  .challenges__item {
+    margin-bottom: $vs*3;
+  }
+}
+
+.current-challenges__list {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.challenge__header {
+  overflow: hidden;
+  margin-bottom: $vs;
+}
+
+.challenge__src {
+  @include respond-to('medium and above') {
+    @include span(1 of 12);
+  }
+}
+
+.challenge__excerpt {
+  margin: 0 0 $vs/2;
+
+  @include respond-to('medium and above') {
+    @include span(6 of 11);
+    margin-bottom: 0
+  }
+}
+
+.challenge__actions {
+  @include respond-to('medium and above') {
+    @include span(5 of 11 last);
+    text-align: right;
+  }
+}

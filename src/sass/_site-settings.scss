@@ -1,0 +1,90 @@
+$base-font-size: 14px;
+$base-line-height: 18px;
+$base-lh-ratio: 1.28;
+
+$dev: ( baseline: 'false' );
+
+$supports: ( rem: 'true' );
+
+
+$vs: $base-line-height;
+$vsr: $base-lh-ratio+em;
+
+$hs: 26px;
+$hsr: math-strip-units($hs/$base-font-size)+em;
+
+
+// § Fonts
+$font-default-family: gentona;
+$font-default-stack: $font-default-family, "proxima nova", helvetica, sans-serif;
+$font-quadon: quadon, helvetica, sans-serif;
+
+
+
+
+
+$palettes: (
+  blue: (
+    cornflower: #68ace5,
+    cloudburst: #212f57,
+    sherpa: #003d4c,
+    midnight: #002d72,
+  ),
+  green: (
+    base: #00AB8E
+  ),
+  white: (
+    base: #fff,
+    ebb: #eae8e6
+  ),
+  grey: (
+    friar: #7e7e7c,
+    pampas: #f8f7f6
+  ),
+  yellow: (
+    goldenrod: #fbd872
+  )
+);
+
+
+
+
+
+$susy: (
+  columns: 16,
+  gutters: .5
+);
+@include border-box-sizing;
+
+
+
+
+
+$width__small: 425px !default;
+$width__medium: 650px !default;
+$width__large: 750px !default;
+$width__largest: 978px !default;
+$mq-largest: $width__largest;
+
+// # BREAKPOINTS
+// ==========================================================================
+//
+
+$breakpoint-to-ems: true;
+$breakpoint-no-query-fallbacks: true;
+
+$no-queries: 'no-query' '.lt-ie9';
+
+$breakpoints: add-breakpoint('small only', (max-width $width__small - 1px));
+$breakpoints: add-breakpoint('small and above', ($width__small, $no-queries));
+$breakpoints: add-breakpoint('between small and medium', ($width__small $width__medium));
+$breakpoints: add-breakpoint('below medium', (max-width $width__medium - 1px, $no-queries));
+$breakpoints: add-breakpoint('medium and above', ($width__medium, $no-queries));
+$breakpoints: add-breakpoint('between medium and large', ($width__medium $width__large));
+$breakpoints: add-breakpoint('below large', (max-width $width__large - 1px, $no-queries));
+$breakpoints: add-breakpoint('large and above', ($width__large, $no-queries));
+$breakpoints: add-breakpoint('between large and largest', ($width__large $width__largest));
+$breakpoints: add-breakpoint('largest only', ($width__largest, $no-queries));
+$breakpoints: add-breakpoint('high resolution', (min-resolution 1.5dppx, false));
+$breakpoints: add-breakpoint('landscape', (orientation landscape));
+$breakpoints: add-breakpoint('portrait', (orientation portrait));

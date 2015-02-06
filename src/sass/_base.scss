@@ -1,0 +1,63 @@
+html {
+  @if map-get($dev, baseline) == true {
+    $h: math-strip-units($vs);
+    background-image: url(http://basehold.it/i/#{$h});
+  }
+
+  font-family: $font-default-stack;
+  font-size: $base-font-size;
+  line-height: $base-lh-ratio;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+h1 {
+  margin-bottom: $vs;
+  font-family: $font-quadon;
+}
+
+blockquote,
+p,
+ol,
+ul,
+dl {
+  margin: 0 0 $vs;
+}
+
+a:link,
+a:active,
+a:visited {
+  text-decoration: none;
+  color: palette(green, base);
+  transition: all .3s ease-in-out;
+}
+
+a:hover,
+a:visited {
+  transition-duration: .1s;
+}
+
+
+.help {
+  font-size: .8em;
+}
+
+.attach-left {
+  float: left;
+  margin: 0 $hs $vs 0;
+
+  &.jhu-logo {
+    margin-top: $vs*2;
+    margin-right: $vs*3;
+    margin-bottom: $vs*2;
+  }
+}
+

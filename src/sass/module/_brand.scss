@@ -1,0 +1,31 @@
+.brand {
+  display: block;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 150%;
+  }
+}
+
+.brand--horiz {
+  width: 207px;
+  height: 41px;
+  background: transparent url('../images/logo-jhu-horizontal.svg') center center no-repeat;
+
+  .no-svg & {
+    background-image: url('../images/logo-jhu-horizontal@3x.png');
+    background-size: cover;
+  }
+
+  &.brand--blue {
+    background: transparent url('../images/logo-jhu-horizontal-blue.svg') center center no-repeat;
+
+    .no-svg & {
+      background-image: url('../images/logo-jhu-horizontal-blue@3x.png');
+      background-size: cover;
+    }
+  }
+}

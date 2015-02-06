@@ -1,0 +1,30 @@
+.masthead {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
+.masthead__brand {
+  margin: 0 auto $vs*2;
+  @include respond-to('medium and above') {
+    float: left;
+    margin-bottom: 0;
+  }
+}
+
+
+.masthead__primary {
+  margin: 0 auto $vs*2;
+  @include respond-to('medium and above') {
+    @include span(3 last);
+    margin-bottom: 0;
+  }
+}
+
+
+.masthead--has-full-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+}

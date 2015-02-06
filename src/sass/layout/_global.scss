@@ -1,0 +1,39 @@
+.container {
+  width: 95%;
+  max-width: 1280px;
+  margin: 0 auto;
+  overflow: auto;
+}
+
+
+html,
+body {
+  height: 100%;
+}
+
+.page {
+  @include respond-to('medium and above') {
+    display: table;
+    width: 100%;
+  }
+}
+
+.page-row {
+  @include respond-to('medium and above') {
+    display: table-row;
+    height: 1px;
+  }
+}
+
+.page-row--expanded {
+  @include respond-to('medium and above') {
+    height: 100%;
+  }
+}
+
+
+.keel {
+  width: 100%;
+  padding: $vs*3 0;
+  background-color: palette(blue, midnight);
+}

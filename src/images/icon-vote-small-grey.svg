@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="14px" height="12px" viewBox="0 0 14 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch Beta 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>icon-vote-small-grey</title>
+    <desc>Created with Sketch Beta.</desc>
+    <defs></defs>
+    <g id="Option-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Public-Homepage---Alternate-Color---01" sketch:type="MSArtboardGroup" transform="translate(-183.000000, -859.000000)" fill="#7E7E7C">
+            <g id="pages/homepage-02-color-01" sketch:type="MSLayerGroup" transform="translate(-1.000000, 0.000000)">
+                <g id="Components-/-Content-/-Challenges" transform="translate(171.000000, 642.000000)" sketch:type="MSShapeGroup">
+                    <g id="challenges" transform="translate(0.000000, 40.000000)">
+                        <g id="challenge">
+                            <g id="content" transform="translate(0.000000, 93.000000)">
+                                <g id="Rectangle-42">
+                                    <g id="10:0:0" transform="translate(0.000000, 10.000000)">
+                                        <g id="footer" transform="translate(0.000000, 62.000000)">
+                                            <g id="votes" transform="translate(13.000000, 10.000000)">
+                                                <path d="M5.2499804,14 C5.28213653,14 5.31440203,13.9991429 5.34677691,13.9974286 C5.84377506,13.9704286 6.30555458,13.7373928 6.61650655,13.356607 L13.6164804,4.78517663 C14.2202282,4.04589076 14.097838,2.9670691 13.3431533,2.37574755 C12.5884686,1.78421171 11.4871759,1.90421173 10.8834281,2.64339046 L5.10484032,9.71921338 L2.9874576,7.64492723 C2.30397577,6.97549852 1.19601116,6.97549852 0.512529337,7.64492723 C-0.170843112,8.31446309 -0.170843112,9.3999276 0.512529337,10.0693563 L4.01251627,13.4978213 C4.34162442,13.8202142 4.78710713,14 5.2499804,14 L5.2499804,14 Z" id="icon-vote-small-grey"></path>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

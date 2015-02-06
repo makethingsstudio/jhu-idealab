@@ -1,0 +1,39 @@
+.icon {
+  display: inline-block;
+  overflow: hidden;
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &:before {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 150%;
+  }
+}
+
+.icon--small {
+  width: 14px;
+  height: 14px;
+}
+
+
+.icon-comments {
+  background-color: transparent;
+  background-position: center center;
+  background-repeat: no-repeat;
+  &.icon--small {
+    background-image: url('../images/icon-chat-small-grey.svg');
+    background-size: 14px 12px;
+  }
+}
+
+.icon-vote {
+
+  &.icon--small {
+    background-image: url('../images/icon-vote-small-grey.svg');
+    background-size: 14px 12px;
+  }
+}
