@@ -1,0 +1,43 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7 l-home" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8 l-home" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9 l-home" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js l-home" lang=""> <!--<![endif]-->
+  <head>
+    <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css" />
+    <!-- endbower -->
+    <link rel="stylesheet" href="/styles/master.css">
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="page-row page-row--expanded">
+        {% include _site-header-home.html %}
+        <main class="main">
+          {{ content }}
+        </main><!-- /.main -->
+
+      </div>
+
+      {% include _site-footer.html %}
+    </div>
+
+
+
+
+
+    <!-- bower:js -->
+    <script src="/bower_components/zepto/zepto.js"></script>
+    <script src="/bower_components/loadcss/loadCSS.js"></script>
+    <!-- endbower -->
+    <script>
+      // load a file
+      loadCSS( "/styles/webfonts.css" );
+    </script>
+    <noscript><link href="/styles/webfonts.css" rel="stylesheet"></noscript>
+    <script src="/scripts/main.js"></script>
+  </body>
+</html>
