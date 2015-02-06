@@ -5,7 +5,7 @@ $post = new TimberPost();
 $context['post'] = $post;
 $context['info_title'] = get_field('info_title', 'options');
 $context['info_content'] = get_field('info_content', 'options');
-$context['challenges'] = ideaScaleCampaigns();
+$context['challenges'] = json_cached_api_results(ideaScaleCampaigns());
 
 $templates = array('index.twig');
 if (is_front_page()){

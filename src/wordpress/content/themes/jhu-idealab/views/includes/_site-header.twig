@@ -1,18 +1,14 @@
 <div class="masthead {{ masthead_class }}">
   <div class="container">
-    <a href="#" class="brand brand--horiz brand--blue masthead__brand">Johns Hopkins University</a>
+    <a href="/" class="brand brand--horiz brand--blue masthead__brand">Johns Hopkins University</a>
     <nav class="primary-menu masthead__primary">
       <ul class="nav primary-nav primary-nav--blue">
-        <li>
-          <a href="#" title="Contact">Contact</a>
+        {% for item in primary.get_items %}
+        <li class="{{item.classes | join(' ')}}">
+          <a href="{{item.get_link}}">{{item.title}}</a>
         </li>
-        <li>
-          <a href="#" title="Rules">Rules</a>
-        </li>
-        <li>
-          <a href="#" title="FAQ">FAQ</a>
-        </li>
+        {% endfor %}
       </ul>
-    </nav><!-- /.masthead-nav -->
+    </nav>
   </div>
 </div><!-- /.masthead -->
