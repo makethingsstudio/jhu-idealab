@@ -197,7 +197,7 @@ gulp.task('default', ['clean'], function () {
     gulp.start('build');
 });
 
-gulp.task('serve', ['jekyll-rebuild'], function () {
+gulp.task('serve', function () {
   browserSync({
     notify: false,
     // Run as an https by uncommenting 'https: true'
@@ -247,15 +247,11 @@ gulp.task('watch', ['serve'], function () {
     // watch for changes
 
     gulp.watch([
-        '.tmp/*.html',
-        '.tmp/**/*.html',
-        '.tmp/styles/**/*.css',
         'src/scripts/**/*.js',
         'src/images/**/*'
     ], reload);
 
-    gulp.watch(['src/static/templates/*.html', 'src/static/templates/_includes/*.html', 'src/static/templates/_layouts/*.html'], ['jekyll-rebuild']);
-    gulp.watch('src/wordpress/**/*.php', reload);
+    gulp.watch('src/www/**/*.php', reload);
     gulp.watch('src/sass/**/*.scss', ['styles']);
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('bower.json', ['wiredep']);
