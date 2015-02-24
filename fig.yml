@@ -1,0 +1,11 @@
+web:
+  # password for mysql is: a3df3f589a77
+  image: tutum/lamp
+  ports:
+    - "80:80"
+    - "3306:3306"
+  hostname: web.cied
+  domainname: web.cied.dev
+  volumes:
+    - /vagrant/Documents/projects/cied-website/cied-website-git/src/www:/app
+  command: ["/run.sh", "/vagrant/Documents/projects/cied-website/cied-website-git/config/docker/permissions.sh"]
