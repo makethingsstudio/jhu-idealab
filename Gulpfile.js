@@ -74,7 +74,7 @@ var PLUMBER_OPTIONS = {
 };
 
 
-var PROXY_URL = 'http://idealab.lvh.me:8888/';
+var PROXY_URL = 'http://192.168.30.100/';
 
 
 gulp.task('styles', function () {
