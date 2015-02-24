@@ -4,8 +4,8 @@ web:
   ports:
     - "80:80"
     - "3306:3306"
-  hostname: web.cied
-  domainname: web.cied.dev
+  hostname: web.idealab
+  domainname: web.idealab.dev
   volumes:
-    - /vagrant/Documents/projects/cied-website/cied-website-git/src/www:/app
-  command: ["/run.sh", "/vagrant/Documents/projects/cied-website/cied-website-git/config/docker/permissions.sh"]
+    - /vagrant/Documents/projects/jhu-idealab-site-dev/src/www:/app
+  command: ["/run.sh", "/vagrant/Documents/projects/jhu-idealab-site-dev/config/docker/permissions.sh"]
