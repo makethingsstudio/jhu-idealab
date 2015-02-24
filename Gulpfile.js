@@ -251,7 +251,7 @@ gulp.task('watch', ['serve'], function () {
         'src/images/**/*'
     ], reload);
 
-    gulp.watch('src/www/**/*.php', reload);
+    gulp.watch('src/www/**/*.{php,twig}', reload);
     gulp.watch('src/sass/**/*.scss', ['styles']);
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('bower.json', ['wiredep']);

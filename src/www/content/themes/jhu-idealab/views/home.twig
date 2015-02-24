@@ -14,11 +14,11 @@
       <header class="hero__header">
         <h1 class="hero__heading">{{ post.hero_title }}</h1><!-- /.hero-heading -->
         <p class="hero__subheading">{{ post.hero_tagline }}</p><!-- /.hero-subheading -->
-        <p class="hero__excerpt">{{ post.hero_intro }}</p><!-- /.hero-content hero-content -->
+        <div class="hero__excerpt">{{ post.get_field('hero_intro') }}</div><!-- /.hero-content hero-content -->
       </header><!-- /.hero-header-->
       <div class="hero__content">
         <div class="steps steps--mast">
-          <h2 class="steps__heading">{{ post.step_title }}</h2><!-- /.steps-heading steps-feature-heading -->
+          <h2 class="steps__heading">{{ post.steps_title }}</h2><!-- /.steps-heading steps-feature-heading -->
           <ol class="steps__list steps__list--horizontal">
             {% if post.step_1 %}
             <li class="steps__item" data-count="1">
@@ -40,7 +40,7 @@
       </div><!-- /.hero-content hero-full-content -->
       {% if post.step_action %}
       <div class="hero-footer">
-        <a href="{{ post.step_action }}" class="button button--rev button--cornflower">Get Started</a>
+        <a href="{{ post.step_action }}" class="button button--rev button--cinnabar">Get Started</a>
       </div><!-- /.hero-footer -->
       {% endif %}
     </div><!-- /.container -->
