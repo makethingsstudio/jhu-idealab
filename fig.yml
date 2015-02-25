@@ -4,12 +4,29 @@ web:
   domainname: idealab.jhu.dev
   volumes:
     - /vagrant/Documents/projects/jhu-idealab-site-dev/src/www:/app
-  command: ["/run.sh", "/vagrant/Documents/projects/jhu-idealab-site-dev/config/docker/permissions.sh"]
+  links:
+    - mysql
   environment:
     - VIRTUAL_HOST=idealab.jhu.dev
 
 mysql:
   image: mysql
+  ports:
+    - 3306
   environment:
     - VIRTUAL_HOST=mysql.idealab.jhu.dev
     - MYSQL_ROOT_PASSWORD=password
+
+
+
+# docker run -d -p 80:80 --name webapp -link mysql:mysql php:5.5
+
+
+# docker run -d -p 80 -e VIRTUAL_HOST=web.idealab.dev --name webapp -link mysql:mysql -v /vagrant/Documents/projects/jhu-idealab-site-dev/src/www:/app tutum/apache-php
+
+# docker run -d -p 80:80 -v /var/run/docker.sock:/tmp/docker.sock jwilder/nginx-proxy
+
+# docker run -d -p 3306:3306 --name mysql -e MYSQL_ROOT_PASSWORD=password mysql
+
+
+# http://passingcuriosity.com/2013/dnsmasq-dev-osx/
