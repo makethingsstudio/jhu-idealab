@@ -83,11 +83,8 @@ gulp.task('styles', function () {
         'src/sass/module/*.scss',
         'src/sass/layout/*.scss'
       ])
-        .pipe($.plumber(PLUMBER_OPTIONS))
         .pipe($.sass())
-        .pipe($.plumber.stop())
-        .pipe(gulp.dest('.tmp/styles'))
-        .pipe(gulp.dest('src/wordpress/content/themes/jhu-idealab/styles'))
+        .pipe(gulp.dest('src/www/content/themes/jhu-idealab/styles'))
         .pipe($.size({gzip: true}));
 });
 
@@ -252,7 +249,7 @@ gulp.task('watch', ['serve'], function () {
     ], reload);
 
     gulp.watch('src/www/**/*.{php,twig}', reload);
-    gulp.watch('src/sass/**/*.scss', ['styles']);
+    gulp.watch('src/sass/**/*.scss', ['styles', reload]);
     gulp.watch('src/scripts/**/*.js', ['scripts']);
     gulp.watch('bower.json', ['wiredep']);
 });

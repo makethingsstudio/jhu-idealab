@@ -42,7 +42,7 @@
 
     &:hover,
     &:focus {
-      color: palette(green);
+      color: palette(yellow, supernova);
 
       &:before {
         visibility: visible;

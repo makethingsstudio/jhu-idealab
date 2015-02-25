@@ -30,12 +30,20 @@ a:hover, a:visited {
 .help {
   font-size: .8em; }
 
-.attach-left {
+.alignleft {
   float: left;
   margin: 0 26px 18px 0; }
-  .attach-left.jhu-logo {
+  .alignleft.jhu-logo {
     margin-top: 36px;
     margin-right: 54px;
+    margin-bottom: 36px; }
+
+.alignright {
+  float: right;
+  margin: 0 0 18px 26px; }
+  .alignright.jhu-logo {
+    margin-top: 36px;
+    margin-left: 54px;
     margin-bottom: 36px; }
 
 .brand {
@@ -79,6 +87,27 @@ a:hover, a:visited {
       color: #fff;
       border-color: #4b4b49;
       background-color: #7e7e7c; }
+
+.button--cinnabar:link, .button--cinnabar:active, .button--cinnabar:visited {
+  color: #eae8e6;
+  background-color: #e03c31; }
+.button--cinnabar:hover, .button--cinnabar:active {
+  color: #e03c31;
+  background-color: #eae8e6; }
+.button--cinnabar.button--outline {
+  color: #e03c31;
+  border: 2px solid #e03c31;
+  background-color: transparent; }
+  .button--cinnabar.button--outline:hover, .button--cinnabar.button--outline:focus {
+    color: #fff;
+    border-color: #951e16;
+    background-color: #e03c31; }
+.button--cinnabar.button--rev {
+  color: #e03c31;
+  background-color: #eae8e6; }
+  .button--cinnabar.button--rev:hover, .button--cinnabar.button--rev:focus {
+    color: #eae8e6;
+    background-color: #e03c31; }
 
 .button--cornflower {
   color: #eae8e6;
@@ -146,13 +175,9 @@ a:hover, a:visited {
 @media  (min-width: 40.625em) {
   .current-challenges--full {
     padding-left: 12.76596%;
-    
-    
     padding-right: 12.76596%; } }
 .lt-ie9 .current-challenges--full {
   padding-left: 12.76596%;
-  
-  
   padding-right: 12.76596%; }
 .current-challenges--full .challenges__item {
   margin-bottom: 54px; }
@@ -167,99 +192,63 @@ a:hover, a:visited {
 
 @media  (min-width: 40.625em) {
   .challenge__src {
-    
-    
-    
     width: 5.71429%;
     float: left;
-    
-    margin-right: 2.85714%;
-    
-     } }
+    margin-right: 2.85714%; } }
 .lt-ie9 .challenge__src {
-  
-  
-  
   width: 5.71429%;
   float: left;
-  
-  margin-right: 2.85714%;
-  
-   }
+  margin-right: 2.85714%; }
 
 .challenge__excerpt {
   margin: 0 0 9px; }
   @media  (min-width: 40.625em) {
     .challenge__excerpt {
-      
-      
-      
       width: 53.125%;
       float: left;
-      
       margin-right: 3.125%;
-      
-      
       margin-bottom: 0; } }
   .lt-ie9 .challenge__excerpt {
-    
-    
-    
     width: 53.125%;
     float: left;
-    
     margin-right: 3.125%;
-    
-    
     margin-bottom: 0; }
 
 @media  (min-width: 40.625em) {
   .challenge__actions {
-    
-    
-    
     width: 43.75%;
     float: right;
-    
     margin-right: 0;
-    
-    
     text-align: right; } }
 .lt-ie9 .challenge__actions {
-  
-  
-  
   width: 43.75%;
   float: right;
-  
   margin-right: 0;
-  
-  
   text-align: right; }
 
 .cta:link, .cta:active, .cta:visited {
   border: 2px solid transparent;
   color: #eae8e6;
-  background-color: #00AB8E; }
+  background-color: #005eb8; }
 .cta:hover, .cta:focus {
-  color: #00AB8E;
+  color: #005eb8;
   background-color: #eae8e6; }
 
 .cta--rev:link, .cta--rev:active, .cta--rev:visited {
   border: 2px solid transparent;
-  color: #00AB8E;
+  color: #005eb8;
   background-color: #eae8e6; }
 .cta--rev:hover, .cta--rev:focus {
   color: #eae8e6;
-  background-color: #00AB8E; }
+  background-color: #005eb8; }
 
 .cta--outline:link, .cta--outline:active, .cta--outline:visited {
-  border: 2px solid #00AB8E;
-  color: #00AB8E;
+  border: 2px solid #005eb8;
+  color: #005eb8;
   background-color: #eae8e6; }
 .cta--outline:hover, .cta--outline:focus {
   color: #eae8e6;
-  background-color: #00AB8E; }
+  background-color: #005eb8; }
 
 /* ==========================================================================
    Hero
@@ -277,18 +266,23 @@ a:hover, a:visited {
   line-height: 1; }
 
 .hero__heading {
+  margin-bottom: 0;
   font-family: quadon, helvetica, sans-serif;
   font-weight: 800;
   font-size: 48px; }
 
 .hero__subheading {
-  margin: 0;
+  margin: 0 0 9px;
   font-weight: 700;
   font-size: 32px; }
 
-.hero__intro {
-  margin: 0;
-  font-weight: 700; }
+.hero__excerpt {
+  margin: 0 0 18px;
+  font-size: 16px;
+  line-height: 18px;
+  color: #eae8e6; }
+  .hero__excerpt p {
+    margin-bottom: 9px; }
 
 .hero__content {
   margin-bottom: 18px; }
@@ -335,38 +329,35 @@ a:hover, a:visited {
     .hero--mast {
       height: 85%;
       max-height: 42em;
-      padding-top: 14em;
+      padding-top: 10em;
       padding-bottom: 54px; } }
   .lt-ie9 .hero--mast {
     height: 85%;
     max-height: 42em;
-    padding-top: 14em;
+    padding-top: 10em;
     padding-bottom: 54px; }
-  .hero--mast .container {
+  @media  (min-width: 40.625em) {
+    .hero--mast .hero__wrap {
+      margin-left: 12.76596%; } }
+  .lt-ie9 .hero--mast .hero__wrap {
+    margin-left: 12.76596%; }
+  .hero--mast .hero__header {
     padding-top: 126px;
     background: transparent url('../images/icon-bulb-flourescent.svg') center top no-repeat; }
     @media  (min-width: 40.625em) {
-      .hero--mast .container {
-        padding-left: 19.14894%;
-        
-        
-        padding-right: 6.38298%;
+      .hero--mast .hero__header {
+        padding-left: 6.38298%;
         padding-top: 0;
-        background-position: 12.76596% top; } }
-    .lt-ie9 .hero--mast .container {
-      padding-left: 19.14894%;
-      
-      
-      padding-right: 6.38298%;
+        background-position: 0 top; } }
+    .lt-ie9 .hero--mast .hero__header {
+      padding-left: 6.38298%;
       padding-top: 0;
-      background-position: 12.76596% top; }
+      background-position: 0 top; }
   @media  (min-width: 40.625em) {
-    .hero--mast .hero__intro {
-      
-      padding-right: 6.38298%; } }
-  .lt-ie9 .hero--mast .hero__intro {
-    
-    padding-right: 6.38298%; }
+    .hero--mast .hero__excerpt {
+      padding-right: 31.91489%; } }
+  .lt-ie9 .hero--mast .hero__excerpt {
+    padding-right: 31.91489%; }
 
 .icon {
   display: inline-block;
@@ -543,26 +534,14 @@ a:hover, a:visited {
   margin: 0 auto 36px; }
   @media  (min-width: 40.625em) {
     .masthead__primary {
-      
-      
-      
-      width: 17.02128%;
+      width: 23.40426%;
       float: right;
-      
       margin-right: 0;
-      
-      
       margin-bottom: 0; } }
   .lt-ie9 .masthead__primary {
-    
-    
-    
-    width: 17.02128%;
+    width: 23.40426%;
     float: right;
-    
     margin-right: 0;
-    
-    
     margin-bottom: 0; }
 
 .masthead--has-full-bg {
@@ -618,7 +597,7 @@ a:hover, a:visited {
     text-transform: uppercase;
     color: #eae8e6; }
   .primary-nav a:hover, .primary-nav a:focus {
-    color: #00AB8E; }
+    color: #ffcd00; }
     .primary-nav a:hover:before, .primary-nav a:focus:before {
       visibility: visible;
       transition-duration: .3s;
@@ -635,7 +614,7 @@ a:hover, a:visited {
 .steps__heading {
   margin-bottom: 9px;
   font-size: 24px;
-  color: #68ace5; }
+  color: #ffcd00; }
 
 .steps--mast a:link, .steps--mast a:active, .steps--mast a:visited {
   text-decoration: underline;
@@ -645,14 +624,16 @@ a:hover, a:visited {
   padding: 0;
   margin: 0; }
 
-.steps__item:before {
-  content: attr(data-count);
-  display: block;
-  font-family: quadon, helvetica, sans-serif;
-  font-weight: 800;
-  font-size: 48px;
-  line-height: 1;
-  color: #68ace5; }
+.steps__item {
+  height: 48px; }
+  .steps__item:before {
+    content: attr(data-count);
+    display: block;
+    font-family: quadon, helvetica, sans-serif;
+    font-weight: 800;
+    font-size: 48px;
+    line-height: 1;
+    color: #ffcd00; }
 
 @media  (min-width: 40.625em) {
   .steps__list--horizontal {
@@ -739,13 +720,9 @@ html, body {
     @media  (min-width: 40.625em) {
       .l-home .sub-content .container {
         padding-left: 12.76596%;
-        
-        
         padding-right: 12.76596%; } }
     .lt-ie9 .l-home .sub-content .container {
       padding-left: 12.76596%;
-      
-      
       padding-right: 12.76596%; }
   .l-home .sub-content h2 {
     margin-bottom: 18px;
@@ -766,93 +743,43 @@ html, body {
     width: 61.70213%; }
   @media  (min-width: 40.625em) {
     .l-interior .main-content {
-      
-      
-      
       width: 48.93617%;
       float: left;
-      
       margin-right: 2.12766%;
-      
-      
       font-size: 21px; } }
   .lt-ie9 .l-interior .main-content {
-    
-    
-    
     width: 48.93617%;
     float: left;
-    
     margin-right: 2.12766%;
-    
-    
     font-size: 21px; }
   @media  (min-width: 61.125em) {
     .l-interior .main-content {
-      
-      
-      
       width: 61.70213%;
       float: left;
-      
       margin-right: 2.12766%;
-      
-      
       font-size: 21px; } }
   .lt-ie9 .l-interior .main-content {
-    
-    
-    
     width: 61.70213%;
     float: left;
-    
     margin-right: 2.12766%;
-    
-    
     font-size: 21px; }
   @media  (min-width: 40.625em) {
     .l-interior .sub-content {
-      
-      
-      
       width: 36.17021%;
       float: right;
-      
-      margin-right: 0;
-      
-       } }
+      margin-right: 0; } }
   .lt-ie9 .l-interior .sub-content {
-    
-    
-    
     width: 36.17021%;
     float: right;
-    
-    margin-right: 0;
-    
-     }
+    margin-right: 0; }
   @media  (min-width: 61.125em) {
     .l-interior .sub-content {
-      
-      
-      
       width: 23.40426%;
       float: right;
-      
       margin-right: 0;
-      
-      
-      
       margin-right: 6.38298%; } }
   .lt-ie9 .l-interior .sub-content {
-    
-    
-    
     width: 23.40426%;
     float: right;
-    
     margin-right: 0;
-    
-    
-    
     margin-right: 6.38298%; }

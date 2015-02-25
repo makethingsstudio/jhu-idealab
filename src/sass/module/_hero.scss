@@ -15,24 +15,32 @@
 
 .hero__heading,
 .hero__subheading {
+
   line-height: 1;
 }
 
 .hero__heading {
+  margin-bottom: 0;
   font-family: $font-quadon;
   font-weight: 800;
   font-size: 48px;
 }
 
 .hero__subheading {
-  margin: 0;
+  margin: 0 0 ($vs/2);
   font-weight: 700;
   font-size: 32px;
 }
 
-.hero__intro {
-  margin: 0;
-  font-weight: 700;
+.hero__excerpt {
+  margin: 0 0 $vs;
+  font-size: 16px;
+  line-height: 18px;
+  color: palette(white, ebb);
+
+  p {
+    margin-bottom: ($vs/2);
+  }
 }
 
 .hero__content {
@@ -81,31 +89,37 @@
 .hero--mast {
   padding-top: 10em;
   padding-bottom: $vs*2;
+  color: palette(white, ebb);
 
   @include respond-to('medium and above') {
     height: 85%;
     max-height: 42em;
-    padding-top: 14em;
+    padding-top: 10em;
     padding-bottom: $vs*3;
   }
 
-  color: palette(white, ebb);
-
-  .container {
-    padding-top: $vs*7;
-    background: transparent url('../images/icon-bulb-flourescent.svg') center top no-repeat;
+  .hero__wrap {
     @include respond-to('medium and above') {
-      @include prefix(3);
-      @include suffix(1);
-      padding-top: 0;
-      background-position: span(2 wide) top
+      @include pre(2);
     }
-
   }
 
-  .hero__intro {
+
+  .hero__header {
+    padding-top: $vs*7;
+    background: transparent url('../images/icon-bulb-flourescent.svg') center top no-repeat;
+
     @include respond-to('medium and above') {
-      @include suffix(1);
+      @include prefix(1);
+      padding-top: 0;
+      background-position: 0 top
+    }
+  }
+
+
+  .hero__excerpt {
+    @include respond-to('medium and above') {
+      @include suffix(5);
     }
   }
 }

@@ -50,13 +50,24 @@ a:visited {
   font-size: .8em;
 }
 
-.attach-left {
+.alignleft {
   float: left;
   margin: 0 $hs $vs 0;
 
   &.jhu-logo {
     margin-top: $vs*2;
     margin-right: $vs*3;
+    margin-bottom: $vs*2;
+  }
+}
+
+.alignright {
+  float: right;
+  margin: 0 0 $vs $hs;
+
+  &.jhu-logo {
+    margin-top: $vs*2;
+    margin-left: $vs*3;
     margin-bottom: $vs*2;
   }
 }

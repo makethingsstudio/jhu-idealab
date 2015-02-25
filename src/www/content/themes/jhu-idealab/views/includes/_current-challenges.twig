@@ -3,7 +3,24 @@
   <h2 class="current-challenges__heading">Current Challenges</h2>
   <ul class="current-challenges__list challenges">
   {% endif %}
+  <li class="challenges__item challenge" id="challenge-{{ challenge.id }}">
+    <div class="challenge__header media">
+        {% if challenge.image|length %}
+        <img src="{{TimberImage(challenge.image).src|resize(100,100)}}" alt="" class="media__src challenge__src">
+        {% else %}
+            <img src="http://placecage.com/100/100" alt="" class="media__src challenge__src">
+        {% endif %}
+        <div class="media__body">
+          <h2 class="challenge__heading">{{ challenge.title }}</h2>
+          {{ challenge.description}}
+          <div class="button-group challenge__actions">
+            <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&discussionID={{ challenge.id|url_encode }}" title="Submit an Idea" class="button cta">Submit an Idea</a>
+            <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" title="Vote Today" class="button button-group__last cta--outline">Vote for an idea</a>
+          </div>
+        </div>
+    </div>
 
+  </li>
   {% if loop.last %}
   </ul>
   {% endif %}

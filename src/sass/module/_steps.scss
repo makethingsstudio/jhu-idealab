@@ -1,7 +1,7 @@
 .steps__heading {
   margin-bottom: $vs/2;
   font-size: 24px;
-  color: palette(blue, cornflower);
+  color: palette(yellow, supernova);
 }
 
 
@@ -21,6 +21,8 @@
 }
 
 .steps__item {
+  height: 48px;
+
   &:before {
     content: attr(data-count);
     display: block;
@@ -28,7 +30,7 @@
     font-weight: 800;
     font-size: 48px;
     line-height: 1;
-    color: palette(blue, cornflower);
+    color: palette(yellow, supernova);
   }
 }
 

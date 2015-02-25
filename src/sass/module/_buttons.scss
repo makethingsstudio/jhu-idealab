@@ -27,6 +27,48 @@
 }
 
 
+.button--cinnabar {
+
+  &:link,
+  &:active,
+  &:visited {
+    color: palette(white, ebb);
+    background-color: palette(red, cinnabar);
+  }
+
+  &:hover,
+  &:active {
+    color: palette(red, cinnabar);
+    background-color: palette(white, ebb);
+  }
+
+  &.button--outline {
+    color: palette(red, cinnabar);
+    border: 2px solid palette(red, cinnabar);
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      color: palette(white);
+      border-color: darken(palette(red, cinnabar), 20%);
+      background-color: palette(red, cinnabar);
+    }
+  }
+
+  &.button--rev {
+    color: palette(red, cinnabar);
+    background-color: palette(white, ebb);
+
+    &:hover,
+    &:focus {
+      color: palette(white, ebb);
+      background-color: palette(red, cinnabar);
+    }
+  }
+
+}
+
+
 .button--cornflower {
   color: palette(white, ebb);
   background-color: palette(blue, cornflower);

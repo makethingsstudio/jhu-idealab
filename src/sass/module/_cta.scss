@@ -4,12 +4,12 @@
   &:visited {
     border: 2px solid transparent;
     color: palette(white, ebb);
-    background-color: palette(green);
+    background-color: palette(blue, endeavour);
   }
 
   &:hover,
   &:focus {
-    color: palette(green);
+    color: palette(blue, endeavour);
     background-color: palette(white, ebb);
   }
 }
@@ -19,14 +19,14 @@
   &:active,
   &:visited {
     border: 2px solid transparent;
-    color: palette(green);
+    color: palette(blue, endeavour);
     background-color: palette(white, ebb);
   }
 
   &:hover,
   &:focus {
     color: palette(white, ebb);
-    background-color: palette(green);
+    background-color: palette(blue, endeavour);
   }
 }
 
@@ -35,14 +35,14 @@
   &:link,
   &:active,
   &:visited {
-    border: 2px solid palette(green);
-    color: palette(green);
+    border: 2px solid palette(blue, endeavour);
+    color: palette(blue, endeavour);
     background-color: palette(white, ebb);
   }
 
   &:hover,
   &:focus {
     color: palette(white, ebb);
-    background-color: palette(green);
+    background-color: palette(blue, endeavour);
   }
 }
