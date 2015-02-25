@@ -1,11 +1,15 @@
 web:
-  # password for mysql is: a3df3f589a77
-  image: tutum/lamp
-  ports:
-    - "80:80"
-    - "3306:3306"
-  hostname: web.idealab
-  domainname: web.idealab.dev
+  image: tutum/apache-php
+  hostname: idealab.jhu.edu
+  domainname: idealab.jhu.dev
   volumes:
     - /vagrant/Documents/projects/jhu-idealab-site-dev/src/www:/app
   command: ["/run.sh", "/vagrant/Documents/projects/jhu-idealab-site-dev/config/docker/permissions.sh"]
+  environment:
+    - VIRTUAL_HOST=idealab.jhu.dev
+
+mysql:
+  image: mysql
+  environment:
+    - VIRTUAL_HOST=mysql.idealab.jhu.dev
+    - MYSQL_ROOT_PASSWORD=password
