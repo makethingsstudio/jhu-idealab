@@ -74,6 +74,7 @@ var PLUMBER_OPTIONS = {
 };
 
 
+var THEME_PATH = './src/www/content/themes/jhu-idealab';
 var PROXY_URL = 'http://idealab.jhu.dev/';
 
 
@@ -84,20 +85,20 @@ gulp.task('styles', function () {
         'src/sass/layout/*.scss'
       ])
         .pipe($.sass())
-        .pipe(gulp.dest('src/www/content/themes/jhu-idealab/styles'))
+        .pipe(gulp.dest(THEME_PATH + '/styles'))
         .pipe($.size({gzip: true}));
 });
 
 gulp.task('styles:optimize', ['styles'], function () {
   return gulp.src([
-    'app/public/_/styles/*.css'
+    THEME_PATH + '/styles/*.css'
   ])
   .pipe($.plumber(PLUMBER_OPTIONS))
   .pipe($.combineMediaQueries({
     log: true
   }))
   .pipe($.csso())
-  .pipe(gulp.dest('app/public/_/styles'))
+  .pipe(gulp.dest(THEME_PATH + '/styles'))
   .pipe($.size({title: 'styles, cmqd'}))
   .pipe($.size({title: 'styles:gzip cmqd', gzip: true}));
 });
@@ -111,28 +112,26 @@ gulp.task('scripts', function () {
 });
 
 
-gulp.task("jekyll:dev", $.shell.task("jekyll build"));
-gulp.task("jekyll-rebuild", ["jekyll:dev"], function () {
-  runSequence('styles');
-});
+gulp.task('assets:useref', ['styles', 'scripts'], function () {
+    var assets = $.useref.assets({searchPath: [THEME_PATH, './']});
 
+    return gulp.src(THEME_PATH + '{,**}/*.{php,twig}')
+      .pipe(assets)
+      // Concatenate And Minify JavaScript
+      .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
+      // Remove Any Unused CSS
+      // Note: If not using the Style Guide, you can delete it from
+      // the next line to only include styles your project uses.
+      .pipe($.if('*.css', $.csso()))
+      .pipe(assets.restore())
+      .pipe($.useref())
+      // Update Production Style Guide Paths
+      //.pipe($.replace('components/components.css', 'components/main.min.css'))
+      // Minify Any HTML
+      // Output Files
+      .pipe(gulp.dest(THEME_PATH))
+      .pipe($.size({title: 'html', gzip: true}));
 
-gulp.task('html', ['styles', 'scripts'], function () {
-    var jsFilter = $.filter('**/*.js');
-    var cssFilter = $.filter('**/*.css');
-
-    return gulp.src('.tmp/*.html')
-        .pipe($.useref.assets({searchPath: '{.tmp,src}'}))
-        .pipe(jsFilter)
-        .pipe($.uglify())
-        .pipe(jsFilter.restore())
-        .pipe(cssFilter)
-        .pipe($.csso())
-        .pipe(cssFilter.restore())
-        .pipe($.useref.restore())
-        .pipe($.useref())
-        .pipe(gulp.dest('dist/'))
-        .pipe($.size());
 });
 
 gulp.task('images', function () {
