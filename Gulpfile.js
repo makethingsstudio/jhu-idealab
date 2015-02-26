@@ -129,7 +129,7 @@ gulp.task('assets:useref', ['styles', 'scripts'], function () {
       //.pipe($.replace('components/components.css', 'components/main.min.css'))
       // Minify Any HTML
       // Output Files
-      .pipe(gulp.dest(THEME_PATH))
+      .pipe(gulp.dest(THEME_PATH + '/'))
       .pipe($.size({title: 'html', gzip: true}));
 
 });
