@@ -8,6 +8,7 @@ $context['info_content'] = get_field('area_content', 'options');
 $context['challenges'] = get_field('challenges', 'options');
 //$context['challenges'] = json_cached_api_results(ideaScaleCampaigns());
 $context['html_class'] = 'l-interior';
+$context['masthead_class'] = 'masthead--interior';
 $templates = array('index.twig');
 if (is_front_page()){
   $context['html_class'] = 'l-home';
