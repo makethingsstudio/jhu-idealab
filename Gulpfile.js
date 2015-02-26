@@ -106,7 +106,7 @@ gulp.task('styles:optimize', ['styles'], function () {
     log: true
   }))
   .pipe($.csso())
-  .pipe(gulp.dest(DIST_THEME_PATH + '/styles'))
+  .pipe(gulp.dest(THEME_PATH + '/styles'))
   .pipe($.size({title: 'styles, cmqd'}))
   .pipe($.size({title: 'styles:gzip cmqd', gzip: true}));
 });
@@ -122,9 +122,8 @@ gulp.task('scripts', function () {
 
 gulp.task('assets:useref', ['styles:optimize', 'scripts'], function () {
     var assets = $.useref.assets({searchPath: [
-      THEME_PATH,
+      'src/www/',
       './',
-      DIST_THEME_PATH
     ]});
 
     return gulp.src(THEME_PATH + '/**/*.{php,twig}')
@@ -204,8 +203,8 @@ gulp.task('rev', function () {
         '.twig'
       ],
     }))
-    .pipe($.if('*.html', $.minifyHtml(MINIFY_OPTIONS)))
-    .pipe(gulp.dest('dist'));
+    .pipe($.if('*.{twig,php}', $.minifyHtml(MINIFY_OPTIONS)))
+    .pipe(gulp.dest(DIST_THEME_PATH));
 });
 
 gulp.task('serve', function () {

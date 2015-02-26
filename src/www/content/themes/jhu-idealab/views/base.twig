@@ -6,7 +6,7 @@
   <head>
     <title>{{wp_title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- build:css styles/vendor.css -->
+    <!-- build:css styles/site.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css" />
     <!-- endbower -->
@@ -17,7 +17,11 @@
       // load a file
       loadCSS( "/content/themes/jhu-idealab/styles/webfonts.css" );
     </script>
-    <noscript><link href="/content/themes/jhu-idealab/styles/webfonts.css" rel="stylesheet"></noscript>
+    <noscript>
+      <!-- build:css styles/webfonts.css -->
+      <link href="/content/themes/jhu-idealab/styles/webfonts.css" rel="stylesheet">
+      <!-- endbuild -->
+    </noscript>
     {% block head %}{% endblock %}
   </head>
 
