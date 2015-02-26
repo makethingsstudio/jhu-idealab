@@ -9,10 +9,12 @@
 var gulp = require('gulp');
 var $ = require('gulp-load-plugins')();
 var del = require('del');
+var bower = require('main-bower-files');
 var runSequence = require('run-sequence');
 var browserSync = require('browser-sync');
 var pagespeed = require('psi');
 var reload = browserSync.reload;
+var path = require('path');
 
 
 var AUTOPREFIXER_BROWSERS = [
@@ -68,13 +70,19 @@ var IMAGEMIN_PREFS = {
     ],
 };
 
+var INLINE_OPTIONS = {
+    rootpath: path.resolve('./src/www')
+};
+
+var MINIFY_OPTIONS = {comments:true,spare:true};
+
 
 var PLUMBER_OPTIONS = {
   errorHandler: true
 };
 
-
 var THEME_PATH = './src/www/content/themes/jhu-idealab';
+var DIST_THEME_PATH = './dist/content/themes/jhu-idealab';
 var PROXY_URL = 'http://idealab.jhu.dev/';
 
 
@@ -98,24 +106,29 @@ gulp.task('styles:optimize', ['styles'], function () {
     log: true
   }))
   .pipe($.csso())
-  .pipe(gulp.dest(THEME_PATH + '/styles'))
+  .pipe(gulp.dest(DIST_THEME_PATH + '/styles'))
   .pipe($.size({title: 'styles, cmqd'}))
   .pipe($.size({title: 'styles:gzip cmqd', gzip: true}));
 });
 
 
 gulp.task('scripts', function () {
-    return gulp.src('src/scripts/**/*.js')
+    return gulp.src(THEME_PATH+ '/**/*.js')
         .pipe($.jshint())
         .pipe($.jshint.reporter(require('jshint-stylish')))
         .pipe($.size());
 });
 
 
-gulp.task('assets:useref', ['styles', 'scripts'], function () {
-    var assets = $.useref.assets({searchPath: [THEME_PATH, './']});
+gulp.task('assets:useref', ['styles:optimize', 'scripts'], function () {
+    var assets = $.useref.assets({searchPath: [
+      THEME_PATH,
+      './',
+      DIST_THEME_PATH
+    ]});
 
-    return gulp.src(THEME_PATH + '{,**}/*.{php,twig}')
+    return gulp.src(THEME_PATH + '/**/*.{php,twig}')
+      .pipe($.inlineSource(INLINE_OPTIONS))
       .pipe(assets)
       // Concatenate And Minify JavaScript
       .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
@@ -129,13 +142,13 @@ gulp.task('assets:useref', ['styles', 'scripts'], function () {
       //.pipe($.replace('components/components.css', 'components/main.min.css'))
       // Minify Any HTML
       // Output Files
-      .pipe(gulp.dest(THEME_PATH + '/'))
+      .pipe(gulp.dest(DIST_THEME_PATH + '/'))
       .pipe($.size({title: 'html', gzip: true}));
 
 });
 
 gulp.task('images', function () {
-    return gulp.src(['src/images/**/*', '.tmp/images/**/*'])
+    return gulp.src(['src/images/**/*'])
         .pipe($.plumber())
         .pipe($.newer('dist/images'))
         .pipe($.imagemin({
@@ -144,53 +157,55 @@ gulp.task('images', function () {
             interlaced: true
         }))
         .on('error', console.error.bind(console))
-        .pipe(gulp.dest('dist/images'))
+        .pipe(gulp.dest(DIST_THEME_PATH + '/images'))
         .pipe($.size());
 });
 
 gulp.task('fonts', function () {
-    return gulp.src(bower(), {base: 'bower_components'})
+    return gulp.src(bower().concat(THEME_PATH + '/fonts/**'))
         .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
         .pipe($.flatten())
-        .pipe(gulp.dest('dist/fonts'))
+        .pipe(gulp.dest(DIST_THEME_PATH + '/fonts'))
         .pipe($.size());
 });
 
-gulp.task('extras', function () {
-    return gulp.src([
-        '!src/*.html',
-        '!src/static/templates/**/*',
-        'src/**'
-      ], { dot: true })
-        .pipe(gulp.dest('dist'));
-});
 
-gulp.task('copy:all', function () {
+gulp.task('copy', function () {
     return gulp.src([
-      'src/**',
-      '!src/static/templates/**',
-      '.tmp/**',
+      'src/www/**',
+      '!src/www/*-config.php',
+      '!src/www/bower_components/**',
+      '!src/www/content/themes/**',
+      '!src/www/content/uploads/**'
     ], { dot: true })
         .pipe(gulp.dest('dist'));
 });
 
-gulp.task('copy:dependencies', function () {
-  return gulp.src('bower_components/**')
-    .pipe(gulp.dest('dist/bower_components'));
+gulp.task('clean', function (cb) {
+    del(['dist/*', '!dist/.git'], cb);
 });
 
-gulp.task('clean', function () {
-    return gulp.src(['.tmp', 'dist/{,*/}*', '!dist/.git'], { read: false }).pipe($.clean());
+gulp.task('build', ['clean'],function (done) {
+  runSequence(['copy', 'images', 'fonts'], 'assets:useref', 'rev', done);
 });
-
-gulp.task('build', function () {
-  runSequence('jekyll:dev', ['styles','images', 'fonts', 'extras'])
-});
-
-gulp.task('build:dev', ['copy:all', 'copy:dependencies']);
 
 gulp.task('default', ['clean'], function () {
     gulp.start('build');
+});
+
+gulp.task('rev', function () {
+  return gulp.src(DIST_THEME_PATH + '/**')
+    .pipe($.revAll({
+      base: ['dist', 'src/www/bower_components'],
+      ignore: [
+        /^\/favicon.ico$/g,
+        '.html',
+        '.php',
+        '.twig'
+      ],
+    }))
+    .pipe($.if('*.html', $.minifyHtml(MINIFY_OPTIONS)))
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('serve', function () {
@@ -201,7 +216,6 @@ gulp.task('serve', function () {
     //       will present a certificate warning in the browser.
     // https: true,
     proxy: PROXY_URL,
-
   });
 });
 
