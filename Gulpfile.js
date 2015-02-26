@@ -106,7 +106,7 @@ gulp.task('styles:optimize', ['styles'], function () {
     log: true
   }))
   .pipe($.csso())
-  .pipe(gulp.dest(THEME_PATH + '/styles'))
+  .pipe(gulp.dest(DIST_THEME_PATH + '/styles'))
   .pipe($.size({title: 'styles, cmqd'}))
   .pipe($.size({title: 'styles:gzip cmqd', gzip: true}));
 });
@@ -122,6 +122,7 @@ gulp.task('scripts', function () {
 
 gulp.task('assets:useref', ['styles:optimize', 'scripts'], function () {
     var assets = $.useref.assets({searchPath: [
+      'dist/',
       'src/www/',
       './',
     ]});
