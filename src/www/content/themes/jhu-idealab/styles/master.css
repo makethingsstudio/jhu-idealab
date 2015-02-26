@@ -10,18 +10,39 @@ html {
   line-height: 1.28; }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0; }
+  margin: 18px 0 18px; }
 
 h1 {
-  margin-bottom: 18px;
-  font-family: quadon, helvetica, sans-serif; }
+  margin-top: 0;
+  font-family: quadon, helvetica, sans-serif;
+  font-size: 33px;
+  line-height: 36px; }
+
+* + h1 {
+  margin-top: 36px; }
+
+h2 {
+  font-size: 25px;
+  line-height: 36px; }
+
+h3 {
+  font-size: 19px;
+  line-height: 36px;
+  margin-top: 18px;
+  margin-bottom: 18px; }
+
+h4 {
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 18px;
+  margin-bottom: 18px; }
 
 blockquote, p, ol, ul, dl {
   margin: 0 0 18px; }
 
 a:link, a:active, a:visited {
   text-decoration: none;
-  color: #00AB8E;
+  color: #005eb8;
   transition: all .3s ease-in-out; }
 
 a:hover, a:visited {
@@ -520,6 +541,20 @@ a:hover, a:visited {
   padding-top: 24px;
   padding-bottom: 24px; }
 
+.masthead--interior {
+  background-color: #fff; }
+  .masthead--interior .brand {
+    background: transparent url('../images/logo-jhu-horizontal-blue.svg') center center no-repeat; }
+    .no-svg .masthead--interior .brand {
+      background-image: url('../images/logo-jhu-horizontal-blue@3x.png');
+      background-size: cover; }
+  .masthead--interior .primary-nav a:before {
+    background-color: #68ace5; }
+  .masthead--interior .primary-nav a:link, .masthead--interior .primary-nav a:active, .masthead--interior .primary-nav a:visited {
+    color: #002d72; }
+  .masthead--interior .primary-nav a:hover, .masthead--interior .primary-nav a:focus {
+    color: #68ace5; }
+
 .masthead__brand {
   margin: 0 auto 36px; }
   @media  (min-width: 40.625em) {
@@ -603,13 +638,13 @@ a:hover, a:visited {
       transition-duration: .3s;
       -webkit-transform: scaleX(1);
       transform: scaleX(1); }
-
-.primary-nav--blue a:before {
-  background-color: #68ace5; }
-.primary-nav--blue a:link, .primary-nav--blue a:active, .primary-nav--blue a:visited {
-  color: #002d72; }
-.primary-nav--blue a:active, .primary-nav--blue a:visited {
-  color: #68ace5; }
+  .primary-nav .current-menu-item a:link, .primary-nav .current-menu-item a:active, .primary-nav .current-menu-item a:visited, .primary-nav .current-menu-item a:hover, .primary-nav .current-menu-item a:focus {
+    color: #005eb8; }
+    .primary-nav .current-menu-item a:link:before, .primary-nav .current-menu-item a:active:before, .primary-nav .current-menu-item a:visited:before, .primary-nav .current-menu-item a:hover:before, .primary-nav .current-menu-item a:focus:before {
+      visibility: visible;
+      transition-duration: .3s;
+      -webkit-transform: scaleX(1);
+      transform: scaleX(1); }
 
 .steps__heading {
   margin-bottom: 9px;
@@ -730,8 +765,6 @@ html, body {
 
 .l-interior {
   background-color: #f8f7f6; }
-  .l-interior .masthead {
-    background-color: #fff; }
   .l-interior .main {
     overflow: hidden;
     padding-top: 54px;

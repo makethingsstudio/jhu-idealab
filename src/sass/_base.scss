@@ -16,12 +16,37 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0;
+  margin: $vs 0 $vs;
 }
 
 h1 {
-  margin-bottom: $vs;
+  margin-top: 0;
   font-family: $font-quadon;
+  font-size: 33px;
+  line-height: 36px;
+}
+
+* + h1 {
+  margin-top: $vs*2;
+}
+
+h2 {
+  font-size: 25px;
+  line-height: 36px;
+}
+
+h3 {
+  font-size: 19px;
+  line-height: 36px;
+  margin-top: 18px;
+  margin-bottom: 18px;
+}
+
+h4 {
+  font-size: 14px;
+  line-height: 18px;
+  margin-top: 18px;
+  margin-bottom: 18px;
 }
 
 blockquote,
@@ -36,7 +61,7 @@ a:link,
 a:active,
 a:visited {
   text-decoration: none;
-  color: palette(green, base);
+  color: palette(blue, endeavour);
   transition: all .3s ease-in-out;
 }
 

@@ -20,3 +20,38 @@
   @if $number == 0 { @return 0 }
   @return $number / ($number * 0 + 1);
 }
+
+
+
+//
+// @TODO: Add docs to primary-blue!
+//
+@mixin primary-blue {
+  a:before {
+    background-color: palette(blue, cornflower);
+  }
+
+  a:link,
+  a:active,
+  a:visited {
+    color: palette(blue, midnight);
+  }
+
+  a:hover,
+  a:focus {
+    color: palette(blue, cornflower)
+  }
+}
+
+
+//
+// @TODO: Add docs to brand-blue!
+//
+@mixin brand-blue {
+  background: transparent url('../images/logo-jhu-horizontal-blue.svg') center center no-repeat;
+
+  .no-svg & {
+    background-image: url('../images/logo-jhu-horizontal-blue@3x.png');
+    background-size: cover;
+  }
+}

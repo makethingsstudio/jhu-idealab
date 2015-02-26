@@ -52,22 +52,24 @@
       }
     }
   }
+
+  .current-menu-item {
+    a:link,
+    a:active,
+    a:visited,
+    a:hover,
+    a:focus {
+      color: palette(blue, endeavour);
+
+      &:before {
+        visibility: visible;
+        transition-duration: .3s;
+        -webkit-transform: scaleX(1);
+                transform: scaleX(1);
+      }
+    }
+  }
 }
 
 
-.primary-nav--blue {
-  a:before {
-    background-color: palette(blue, cornflower);
-  }
 
-  a:link,
-  a:active,
-  a:visited {
-    color: palette(blue, midnight);
-  }
-
-  a:active,
-  a:visited {
-    color: palette(blue, cornflower)
-  }
-}

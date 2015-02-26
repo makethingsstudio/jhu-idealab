@@ -3,6 +3,20 @@
   padding-bottom: 24px;
 }
 
+
+.masthead--interior {
+  background-color: palette(white);
+
+  .brand {
+    @include brand-blue;
+  }
+
+  .primary-nav {
+    @include primary-blue;
+  }
+}
+
+
 .masthead__brand {
   margin: 0 auto $vs*2;
   @include respond-to('medium and above') {
