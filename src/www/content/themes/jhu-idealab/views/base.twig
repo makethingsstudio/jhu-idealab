@@ -6,13 +6,19 @@
   <head>
     <title>{{wp_title}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="/bower_components/normalize.css/normalize.css" />
     <!-- endbower -->
     <link rel="stylesheet" href="/content/themes/jhu-idealab/styles/master.css">
-    {% block head %}
-
-    {% endblock %}
+    <!-- endbuild -->
+    <script src="/bower_components/loadcss/loadCSS.js" inline></script>
+    <script>
+      // load a file
+      loadCSS( "/content/themes/jhu-idealab/styles/webfonts.css" );
+    </script>
+    <noscript><link href="/content/themes/jhu-idealab/styles/webfonts.css" rel="stylesheet"></noscript>
+    {% block head %}{% endblock %}
   </head>
 
   <body>
@@ -30,15 +36,10 @@
       {% include 'includes/_site-footer.twig' %}
     </div>
 
+    <!-- build:js scripts/main.js -->
     <!-- bower:js -->
-    <script src="/bower_components/zepto/zepto.js"></script>
-    <script src="/bower_components/loadcss/loadCSS.js"></script>
     <!-- endbower -->
-    <script>
-      // load a file
-      loadCSS( "/content/themes/jhu-idealab/styles/webfonts.css" );
-    </script>
-    <noscript><link href="/content/themes/jhu-idealab/styles/webfonts.css" rel="stylesheet"></noscript>
+    <!-- endbuild -->
 
   </body>
 </html>
