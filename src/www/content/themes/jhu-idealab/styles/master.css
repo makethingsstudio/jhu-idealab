@@ -189,6 +189,7 @@ a:hover, a:visited {
   color: #212f57; }
 
 .current-challenges__heading {
+  margin-top: 0;
   margin-bottom: 18px;
   font-size: 24px;
   line-height: 1; }
@@ -211,6 +212,9 @@ a:hover, a:visited {
   overflow: hidden;
   margin-bottom: 18px; }
 
+.challenge__heading {
+  margin: 0; }
+
 @media  (min-width: 40.625em) {
   .challenge__src {
     width: 5.71429%;
@@ -220,6 +224,12 @@ a:hover, a:visited {
   width: 5.71429%;
   float: left;
   margin-right: 2.85714%; }
+
+@media  (min-width: 40.625em) {
+  .challenge--has-image .challenge__content, .challenge--has-image .challenge__footer {
+    margin-left: 8.57143%; } }
+.lt-ie9 .challenge--has-image .challenge__content, .lt-ie9 .challenge--has-image .challenge__footer {
+  margin-left: 8.57143%; }
 
 .challenge__excerpt {
   margin: 0 0 9px; }
@@ -421,10 +431,12 @@ a:hover, a:visited {
   @media  (min-width: 40.625em) {
     .ideas__item {
       display: inline-block;
-      margin-bottom: 0; } }
+      margin-bottom: 0;
+      vertical-align: top; } }
   .lt-ie9 .ideas__item {
     display: inline-block;
-    margin-bottom: 0; }
+    margin-bottom: 0;
+    vertical-align: top; }
 
 .idea {
   border: 2px solid #eae8e6;
@@ -436,7 +448,14 @@ a:hover, a:visited {
 
 .idea__heading {
   padding-top: 9px;
-  font-size: 14px; }
+  margin: 0;
+  font-size: 14px;
+  line-height: 18px; }
+  @media  (min-width: 40.625em) {
+    .idea__heading {
+      min-height: 6em; } }
+  .lt-ie9 .idea__heading {
+    min-height: 6em; }
   .idea__heading a {
     color: #7e7e7c; }
 
@@ -468,10 +487,12 @@ a:hover, a:visited {
 @media  (min-width: 40.625em) {
   .ideas-list--full .idea {
     display: inline-block;
-    width: 22.85714%; } }
+    width: 22.85714%;
+    min-height: inherit; } }
 .lt-ie9 .ideas-list--full .idea {
   display: inline-block;
-  width: 22.85714%; }
+  width: 22.85714%;
+  min-height: inherit; }
 @media  (min-width: 40.625em) {
   .ideas-list--full .idea + .idea {
     margin-left: 2.12766%; } }
@@ -752,13 +773,13 @@ html, body {
     padding-top: 36px;
     padding-bottom: 36px;
     font-size: 21px; }
-    @media  (min-width: 40.625em) {
-      .l-home .sub-content .container {
-        padding-left: 12.76596%;
-        padding-right: 12.76596%; } }
-    .lt-ie9 .l-home .sub-content .container {
+  @media  (min-width: 40.625em) {
+    .l-home .sub-content .info-wrap {
       padding-left: 12.76596%;
-      padding-right: 12.76596%; }
+      padding-right: 12.76596%; } }
+  .lt-ie9 .l-home .sub-content .info-wrap {
+    padding-left: 12.76596%;
+    padding-right: 12.76596%; }
   .l-home .sub-content h2 {
     margin-bottom: 18px;
     font-family: quadon, helvetica, sans-serif; }

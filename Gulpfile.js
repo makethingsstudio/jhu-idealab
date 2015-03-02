@@ -102,10 +102,7 @@ gulp.task('styles:optimize', ['styles'], function () {
     THEME_PATH + '/styles/*.css'
   ])
   .pipe($.plumber(PLUMBER_OPTIONS))
-  .pipe($.combineMediaQueries({
-    log: true
-  }))
-  .pipe($.csso())
+  .pipe($.combineMediaQueries({log: true })) .pipe($.csso())
   .pipe(gulp.dest(DIST_THEME_PATH + '/styles'))
   .pipe($.size({title: 'styles, cmqd'}))
   .pipe($.size({title: 'styles:gzip cmqd', gzip: true}));
@@ -120,53 +117,53 @@ gulp.task('scripts', function () {
 });
 
 
-gulp.task('assets:useref', ['styles:optimize', 'scripts'], function () {
+gulp.task('assets:useref', ['styles', 'scripts'], function () {
     var assets = $.useref.assets({searchPath: [
-      'dist/',
       'src/www/',
       './',
     ]});
+    var jsFilter = $.filter('**/*.js');
+    var cssFilter = $.filter('**/*.css');
+    var htmlFilter = $.filter('**/*.{php,twig}');
 
     return gulp.src(THEME_PATH + '/**/*.{php,twig}')
       .pipe($.inlineSource(INLINE_OPTIONS))
       .pipe(assets)
-      // Concatenate And Minify JavaScript
-      .pipe($.if('*.js', $.uglify({preserveComments: 'some'})))
-      // Remove Any Unused CSS
-      // Note: If not using the Style Guide, you can delete it from
-      // the next line to only include styles your project uses.
-      .pipe($.if('*.css', $.csso()))
+      .pipe(jsFilter)
+        .pipe($.uglify())
+        .pipe(jsFilter.restore())
+      .pipe(cssFilter)
+        //.pipe($.combineMediaQueries({log: true }))
+        .pipe($.csso())
+        .pipe($.size({title: 'styles gzipped', gzip: true}))
+        .pipe(cssFilter.restore())
+      .pipe(gulp.dest('dist'))
       .pipe(assets.restore())
       .pipe($.useref())
-      // Update Production Style Guide Paths
-      //.pipe($.replace('components/components.css', 'components/main.min.css'))
-      // Minify Any HTML
-      // Output Files
-      .pipe(gulp.dest(DIST_THEME_PATH + '/'))
-      .pipe($.size({title: 'html', gzip: true}));
-
+      .pipe(htmlFilter)
+        .pipe(gulp.dest(DIST_THEME_PATH + '/'))
+        .pipe($.size({title: 'html', gzip: true}))
+        .pipe(htmlFilter.restore())
 });
 
 gulp.task('images', function () {
     return gulp.src(['src/images/**/*'])
         .pipe($.plumber())
         .pipe($.newer('dist/images'))
-        .pipe($.imagemin({
-            optimizationLevel: 3,
-            progressive: true,
-            interlaced: true
-        }))
+        .pipe($.imagemin(IMAGEMIN_PREFS))
         .on('error', console.error.bind(console))
         .pipe(gulp.dest(DIST_THEME_PATH + '/images'))
         .pipe($.size());
 });
 
 gulp.task('fonts', function () {
-    return gulp.src(bower().concat(THEME_PATH + '/fonts/**'))
+    gulp.src(bower())
         .pipe($.filter('**/*.{eot,svg,ttf,woff}'))
         .pipe($.flatten())
         .pipe(gulp.dest(DIST_THEME_PATH + '/fonts'))
-        .pipe($.size());
+
+    gulp.src(THEME_PATH + '/fonts/**')
+      .pipe(gulp.dest(DIST_THEME_PATH + '/fonts'))
 });
 
 
@@ -181,12 +178,20 @@ gulp.task('copy', function () {
         .pipe(gulp.dest('dist'));
 });
 
+gulp.task('copy:theme', function (){
+  return gulp.src([
+      THEME_PATH + '/style.css',
+      THEME_PATH + '/screenshot.png'
+    ])
+    .pipe(gulp.dest(DIST_THEME_PATH));
+});
+
 gulp.task('clean', function (cb) {
     del(['dist/*', '!dist/.git'], cb);
 });
 
 gulp.task('build', ['clean'],function (done) {
-  runSequence(['copy', 'images', 'fonts'], 'assets:useref', 'rev', done);
+  runSequence(['copy', 'copy:theme','images', 'fonts'], 'assets:useref', 'rev', done);
 });
 
 gulp.task('default', ['clean'], function () {

@@ -3,6 +3,7 @@
 }
 
 .current-challenges__heading {
+  margin-top: 0;
   margin-bottom: $vs;
   font-size: 24px;
   line-height: 1;
@@ -27,9 +28,20 @@
   margin-bottom: $vs;
 }
 
+.challenge__heading {
+  margin: 0;
+}
+
 .challenge__src {
   @include respond-to('medium and above') {
     @include span(1 of 12);
+  }
+}
+
+.challenge--has-image .challenge__content,
+.challenge--has-image .challenge__footer{
+  @include respond-to('medium and above') {
+    @include pre(1 of 12);
   }
 }
 

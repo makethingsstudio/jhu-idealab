@@ -17,8 +17,10 @@
     .container {
       padding-top: $vs*2;
       padding-bottom: $vs*2;
-      font-size: 21px;
+      font-size: 16px;
+    }
 
+    .info-wrap {
       @include respond-to('medium and above') {
 
         @include pad(2);

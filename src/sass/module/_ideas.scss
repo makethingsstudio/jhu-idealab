@@ -11,7 +11,8 @@
 
   @include respond-to('medium and above') {
     display: inline-block;
-    margin-bottom: 0
+    margin-bottom: 0;
+    vertical-align: top;
   }
 }
 
@@ -28,7 +29,13 @@
 
 .idea__heading {
   padding-top: $vs/2;
+  margin: 0;
   font-size: 14px;
+  line-height: $vs;
+
+  @include respond-to('medium and above') {
+    min-height: 6em;
+  }
 
   a {
     color: palette(grey, friar);
@@ -79,6 +86,7 @@
     @include respond-to('medium and above') {
       display: inline-block;
       width: span(3 of 12);
+      min-height: inherit;
     }
 
     + .idea {
