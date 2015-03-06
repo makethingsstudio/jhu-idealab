@@ -27,16 +27,23 @@
     content: attr(data-count);
     display: block;
     font-family: $font-quadon;
+    font-style: normal;
     font-weight: 800;
     font-size: 48px;
     line-height: 1;
     color: palette(yellow, supernova);
   }
+
+  strong {
+    color: palette(red, cinnabar);
+  }
 }
 
 .steps__list--horizontal {
   @include respond-to('medium and above') {
-    display: table;
+    display: block;
+    overflow: hidden;
+    list-style: none;
     vertical-align: top;
   }
 
@@ -46,7 +53,7 @@
     margin-bottom: $vs*2;
 
     @include respond-to('medium and above') {
-      display: table-cell;
+      float: left;
       width: span(4 of 12);
       padding-left: span(1 of 12);
     }
@@ -57,7 +64,6 @@
       left: 0;
 
       @include respond-to('medium and above') {
-
         width: span(1 of 4);
         text-align: center;
       }

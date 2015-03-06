@@ -51,7 +51,6 @@
   background: transparent url('../images/logo-jhu-horizontal-blue.svg') center center no-repeat;
 
   .no-svg & {
-    background-image: url('../images/logo-jhu-horizontal-blue@3x.png');
-    background-size: cover;
+    background-image: url('../images/logo-jhu-horizontal-blue.png');
   }
 }

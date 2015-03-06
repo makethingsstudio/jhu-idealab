@@ -34,3 +34,14 @@
     }
   }
 }
+
+.lt-ie9.l-interior {
+  .main-content {
+    @include span(10);
+  }
+
+  .sub-content {
+    @include span(4 last);
+    @include post(1);
+  }
+}

@@ -98,6 +98,12 @@
     padding-bottom: $vs*3;
   }
 
+  .container {
+    .lt-ie9 & {
+      overflow: hidden;
+    }
+  }
+
   .hero__wrap {
     @include respond-to('medium and above') {
       @include pre(2);
@@ -108,6 +114,10 @@
   .hero__header {
     padding-top: $vs*7;
     background: transparent url('../images/icon-bulb-flourescent.svg') center top no-repeat;
+
+    .no-svg & {
+      background-image: url('../images/icon-bulb-flourescent.png');
+    }
 
     @include respond-to('medium and above') {
       @include prefix(1);
