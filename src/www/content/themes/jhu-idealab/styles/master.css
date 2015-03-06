@@ -81,17 +81,15 @@ a:hover, a:visited {
   height: 41px;
   background: transparent url('../images/logo-jhu-horizontal.svg') center center no-repeat; }
   .no-svg .brand--horiz {
-    background-image: url('../images/logo-jhu-horizontal@3x.png');
-    background-size: cover; }
+    background-image: url('../images/logo-jhu-horizontal.png'); }
   .brand--horiz.brand--blue {
     background: transparent url('../images/logo-jhu-horizontal-blue.svg') center center no-repeat; }
     .no-svg .brand--horiz.brand--blue {
-      background-image: url('../images/logo-jhu-horizontal-blue@3x.png');
-      background-size: cover; }
+      background-image: url('../images/logo-jhu-horizontal-blue.png'); }
 
 .button {
   display: inline-block;
-  padding: 9px 26px;
+  padding: 9px 13px;
   line-height: 1;
   font-weight: 700;
   border: 0;
@@ -206,7 +204,8 @@ a:hover, a:visited {
 
 .current-challenges__list {
   padding-left: 0;
-  margin-left: 0; }
+  margin-left: 0;
+  list-style: none; }
 
 .challenge__header {
   overflow: hidden;
@@ -367,6 +366,8 @@ a:hover, a:visited {
     max-height: 42em;
     padding-top: 10em;
     padding-bottom: 54px; }
+  .lt-ie9 .hero--mast .container {
+    overflow: hidden; }
   @media  (min-width: 40.625em) {
     .hero--mast .hero__wrap {
       margin-left: 12.76596%; } }
@@ -375,6 +376,8 @@ a:hover, a:visited {
   .hero--mast .hero__header {
     padding-top: 126px;
     background: transparent url('../images/icon-bulb-flourescent.svg') center top no-repeat; }
+    .no-svg .hero--mast .hero__header {
+      background-image: url('../images/icon-bulb-flourescent.png'); }
     @media  (min-width: 40.625em) {
       .hero--mast .hero__header {
         padding-left: 6.38298%;
@@ -414,10 +417,14 @@ a:hover, a:visited {
   .icon-comments.icon--small {
     background-image: url('../images/icon-chat-small-grey.svg');
     background-size: 14px 12px; }
+    .no-svg .icon-comments.icon--small {
+      background-image: url(../images/icon-chat-small-grey.png); }
 
 .icon-vote.icon--small {
   background-image: url('../images/icon-vote-small-grey.svg');
   background-size: 14px 12px; }
+  .no-svg .icon-vote.icon--small {
+    background-image: url(../images/icon-vote-small-grey.png); }
 
 .ideas-list {
   overflow: hidden;
@@ -567,8 +574,7 @@ a:hover, a:visited {
   .masthead--interior .brand {
     background: transparent url('../images/logo-jhu-horizontal-blue.svg') center center no-repeat; }
     .no-svg .masthead--interior .brand {
-      background-image: url('../images/logo-jhu-horizontal-blue@3x.png');
-      background-size: cover; }
+      background-image: url('../images/logo-jhu-horizontal-blue.png'); }
   .masthead--interior .primary-nav a:before {
     background-color: #68ace5; }
   .masthead--interior .primary-nav a:link, .masthead--interior .primary-nav a:active, .masthead--interior .primary-nav a:visited {
@@ -590,12 +596,12 @@ a:hover, a:visited {
   margin: 0 auto 36px; }
   @media  (min-width: 40.625em) {
     .masthead__primary {
-      width: 23.40426%;
+      width: 29.78723%;
       float: right;
       margin-right: 0;
       margin-bottom: 0; } }
   .lt-ie9 .masthead__primary {
-    width: 23.40426%;
+    width: 29.78723%;
     float: right;
     margin-right: 0;
     margin-bottom: 0; }
@@ -667,6 +673,9 @@ a:hover, a:visited {
       -webkit-transform: scaleX(1);
       transform: scaleX(1); }
 
+.home.page .page-item-7 {
+  display: none; }
+
 .steps__heading {
   margin-bottom: 9px;
   font-size: 24px;
@@ -686,17 +695,24 @@ a:hover, a:visited {
     content: attr(data-count);
     display: block;
     font-family: quadon, helvetica, sans-serif;
+    font-style: normal;
     font-weight: 800;
     font-size: 48px;
     line-height: 1;
     color: #ffcd00; }
+  .steps__item strong {
+    color: #e03c31; }
 
 @media  (min-width: 40.625em) {
   .steps__list--horizontal {
-    display: table;
+    display: block;
+    overflow: hidden;
+    list-style: none;
     vertical-align: top; } }
 .lt-ie9 .steps__list--horizontal {
-  display: table;
+  display: block;
+  overflow: hidden;
+  list-style: none;
   vertical-align: top; }
 .steps__list--horizontal .steps__item {
   position: relative;
@@ -704,11 +720,11 @@ a:hover, a:visited {
   margin-bottom: 36px; }
   @media  (min-width: 40.625em) {
     .steps__list--horizontal .steps__item {
-      display: table-cell;
+      float: left;
       width: 31.42857%;
       padding-left: 5.71429%; } }
   .lt-ie9 .steps__list--horizontal .steps__item {
-    display: table-cell;
+    float: left;
     width: 31.42857%;
     padding-left: 5.71429%; }
   .steps__list--horizontal .steps__item:before {
@@ -735,17 +751,21 @@ html, body {
 @media  (min-width: 40.625em) {
   .page {
     display: table;
-    width: 100%; } }
+    width: 100%;
+    height: 100%; } }
 .lt-ie9 .page {
   display: table;
-  width: 100%; }
+  width: 100%;
+  height: 100%; }
 
 @media  (min-width: 40.625em) {
   .page-row {
     display: table-row;
+    width: 100%;
     height: 1px; } }
 .lt-ie9 .page-row {
   display: table-row;
+  width: 100%;
   height: 1px; }
 
 @media  (min-width: 40.625em) {
@@ -837,3 +857,13 @@ html, body {
     float: right;
     margin-right: 0;
     margin-right: 6.38298%; }
+
+.lt-ie9.l-interior .main-content {
+  width: 61.70213%;
+  float: left;
+  margin-right: 2.12766%; }
+.lt-ie9.l-interior .sub-content {
+  width: 23.40426%;
+  float: right;
+  margin-right: 0;
+  margin-right: 6.38298%; }

@@ -16,11 +16,14 @@
   background: transparent url('../images/logo-jhu-horizontal.svg') center center no-repeat;
 
   .no-svg & {
-    background-image: url('../images/logo-jhu-horizontal@3x.png');
-    background-size: cover;
+    background-image: url('../images/logo-jhu-horizontal.png');
   }
 
   &.brand--blue {
-    @include brand-blue;
+    background: transparent url('../images/logo-jhu-horizontal-blue.svg') center center no-repeat;
+
+      .no-svg & {
+        background-image: url('../images/logo-jhu-horizontal-blue.png');
+      }
   }
 }

@@ -240,22 +240,26 @@ gulp.task('wiredep', function () {
 
     gulp.src('src/styles/*.scss')
         .pipe(wiredep({
-            directory: 'bower_components',
+            directory: 'src/www/bower_components',
             ignorePath: '../../..'
         }))
         .pipe(gulp.dest('src/styles'));
 
-    gulp.src('src/static/templates/_layouts/*.html')
+    gulp.src('src/www/content/themes/jhu-idealab/views/base.twig')
         .pipe(wiredep({
-            directory: 'bower_components',
-            ignorePath: '../../..',
+            directory: 'src/www/bower_components',
+            ignorePath: '../../../..',
+            exclude: [ '/modernizr/', '/loadcss/' ],
             overrides: {
                 "loadcss": {
                   "main": "loadCSS.js"
                 },
+                "modernizr": {
+                  "main": "modernizr.js"
+                },
               }
         }))
-        .pipe(gulp.dest('src/static/templates/_layouts/'));
+        .pipe(gulp.dest('src/www/content/themes/jhu-idealab/views/'));
 });
 
 gulp.task('watch', ['serve'], function () {

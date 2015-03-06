@@ -20,12 +20,7 @@
           {% if challenges|length %}
           <h2 class="challenges-count">
 
-            Presently, we have {{ challenges|length }}
-              {%if challenges|length > 1 %}
-                challenges
-              {% else %}
-                challenge
-              {% endif %} underway!
+            {{ challenge_statement }}
 
 
           </h2>

@@ -22,10 +22,11 @@
       <link href="/content/themes/jhu-idealab/styles/webfonts.css" rel="stylesheet">
       <!-- endbuild -->
     </noscript>
+    <script src="/bower_components/modernizr/modernizr.js"></script>
     {% block head %}{% endblock %}
   </head>
 
-  <body>
+  <body class="{{body_class}}" data-template="base.twig">
     <div class="page">
       <div class="page-row page-row--expanded">
         {% include 'includes/_site-header.twig' with { 'masthead_class': masthead_class } %}

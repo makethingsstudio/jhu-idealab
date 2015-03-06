@@ -27,13 +27,25 @@
   &.icon--small {
     background-image: url('../images/icon-chat-small-grey.svg');
     background-size: 14px 12px;
+
+    .no-svg & {
+      background-image: url(../images/icon-chat-small-grey.png);
+    }
   }
+
+
 }
+
+
 
 .icon-vote {
 
   &.icon--small {
     background-image: url('../images/icon-vote-small-grey.svg');
     background-size: 14px 12px;
+
+    .no-svg & {
+      background-image: url(../images/icon-vote-small-grey.png);
+    }
   }
 }
