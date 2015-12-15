@@ -3,3 +3,4 @@ node_modules
 *.sublime-workspace
 bower_components
 uploads
+local-config.php
