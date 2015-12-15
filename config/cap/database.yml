@@ -1,0 +1,20 @@
+production:
+  host: mysql.georgetowncied.org
+  database: cied_production
+  username: cied_production
+  password: 'tAt-jeuS-shU-Dac-phe'
+staging:
+  host: mysql.georgetowncied.org
+  database: cied_staging
+  username: cied_staging
+  password: 'mIv-noG-Owd-or-Ib-Ye'
+dev:
+  host: mysql.clients.make-things.com
+  database: p0291
+  username: bk_mysql
+  password: St3alth9
+local:
+  host: localhost
+  database: db_name
+  username: root
+  password: 'root'
