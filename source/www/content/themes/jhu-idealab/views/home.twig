@@ -1,0 +1,85 @@
+{% extends "base.twig" %}
+
+{% block head %}
+    <style type="text/css">
+      .hero--full {
+        background-image: {{TimberImage(post.get_field('hero_image')).src}}
+      }
+    </style>
+{% endblock %}
+
+{% block content %}
+  <div class="hero hero--full hero--mast">
+    <div class="container">
+      <div class="hero__wrap">
+        <header class="hero__header">
+          <h1 class="hero__heading">{{ post.hero_title }}</h1><!-- /.hero-heading -->
+          <p class="hero__subheading">{{ post.hero_tagline }}</p><!-- /.hero-subheading -->
+          <div class="hero__excerpt">{{ post.get_field('hero_intro') }}</div><!-- /.hero-content hero-content -->
+
+          {% if challenges|length %}
+          <h2 class="challenges-count">
+
+            {{ challenge_statement }}
+
+
+          </h2>
+          {% endif %}
+
+        </header><!-- /.hero-header-->
+        <div class="hero__content">
+          <div class="steps steps--mast">
+            <h2 class="steps__heading">{{ post.steps_title }}</h2><!-- /.steps-heading steps-feature-heading -->
+            <ol class="steps__list steps__list--horizontal">
+              {% if post.step_1 %}
+              <li class="steps__item" data-count="1">
+                {{ post.step_1 }}
+              </li>
+              {% endif %}
+              {% if post.step_2 %}
+              <li class="steps__item" data-count="2">
+                {{ post.step_2 }}
+              </li>
+              {% endif %}
+              {% if post.step_3 %}
+              <li class="steps__item" data-count="3">
+                {{ post.step_3 }}
+              </li>
+              {% endif %}
+            </ol><!-- /.step-list step-list-horizontal -->
+          </div><!-- /.steps steps-horizontal steps-feature -->
+        </div><!-- /.hero-content hero-full-content -->
+        {% if post.steps_action %}
+        <div class="hero-footer">
+          <a href="{{ post.steps_action }}" class="button button--rev button--cinnabar">Get Started</a>
+        </div><!-- /.hero-footer -->
+        {% endif %}
+      </div>
+    </div><!-- /.container -->
+  </div><!-- /.hero hero-full -->
+
+
+
+
+
+  <div class="main-content">
+    <div class="container">
+      <section class="current-challenges current-challenges--full">
+        {% include 'includes/_current-challenges.twig' %}
+      </section> <!-- /.challenges -->
+    </div> <!-- /.container -->
+  </div> <!-- /content -->
+
+
+
+
+
+  <div class="sub-content">
+    <div class="container">
+      <div class="info-wrap">
+        <h2>{{ info_title }}</h2>
+        {{ info_content }}
+      </div>
+    </div><!-- /.container -->
+  </div><!-- /.sub-content -->
+{% endblock %}
