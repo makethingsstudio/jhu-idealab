@@ -2,15 +2,20 @@
 	"folders":
 	[
 		{
-      "name": "src",
-			"path": "src/"
+      "name": "source",
+			"path": "source/"
 		},
     {
-      "name": "project",
+      "name": "config files",
       "path": ".",
       "folder_exclude_patterns": [
+        "bower_components",
         "node_modules",
-        "src",
+        "source",
+        "public",
+        "shared",
+        "dist",
+
         // ".tmp",
       ]
     }
