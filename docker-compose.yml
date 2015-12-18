@@ -1,13 +1,16 @@
 web:
-  image: tutum/apache-php
+  build: config/docker/images/apache-php
   hostname: idealab.jhu.edu
   domainname: idealab.jhu.dev
   volumes:
-    - /vagrant/Documents/projects/jhu-idealab-site-dev/src/www:/app
+    - /vagrant/makethings/jhu-idealab-site-dev/dist/www:/var/www/html
+  volumes_from:
+    - data
   links:
     - mysql
   environment:
     - VIRTUAL_HOST=idealab.jhu.dev
+
 
 mysql:
   image: mysql
@@ -18,6 +21,11 @@ mysql:
     - MYSQL_ROOT_PASSWORD=password
 
 
+data:
+  image: busybox
+  volumes:
+    - /var/lib/mysql
+    - /var/www/html/content/uploads
 
 # docker run -d -p 80:80 --name webapp -link mysql:mysql php:5.5
 
