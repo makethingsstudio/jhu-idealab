@@ -22,7 +22,7 @@ mysql:
 
 
 data:
-  image: busybox
+  image: phusion/baseimage
   volumes:
     - /var/lib/mysql
     - /var/www/html/content/uploads
