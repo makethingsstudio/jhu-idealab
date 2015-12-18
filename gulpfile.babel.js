@@ -140,9 +140,15 @@ gulp.task('_copy:public', () => {
     'public/**/*.*'])
     .pipe($.changed(DEST))
     .pipe(gulp.dest(DEST));
+});
 
+
+/*
+   §§ copy:htaccess
+   ========================================================================== */
+gulp.task('_copy:htaccess', () => {
   gulp.src(['node_modules/apache-server-configs/dist/.htaccess'])
-        .pipe(gulp.dest(DEST + '/www'));
+    .pipe(gulp.dest(DEST + '/www'));
 });
 
 
@@ -238,9 +244,9 @@ gulp.task('serve', ['copy', 'styles', 'fonts'], () => {
   browserSync({
     notify: false,
     port: 9000,
-    proxy: appUrl,
+    proxy: APPURL,
     serveStatic: [
-      './']
+      '.']
   });
 
 
@@ -279,7 +285,7 @@ gulp.task('scripts', () => {
    ========================================================================== */
 gulp.task('styles', () => {
 
-  return gulp.src(['source/styles/webfonts.scss'])
+  return gulp.src(['source/styles/master.scss','source/styles/webfonts.scss'])
     .pipe($.plumber(PLUMBER_OPTIONS))
     .pipe($.sourcemaps.init())
     .pipe($.sass.sync({
