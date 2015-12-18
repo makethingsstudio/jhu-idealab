@@ -11,3 +11,7 @@ register_nav_menus( array(
 
 add_action('admin_menu', 'post_remove');
 add_filter('timber_context', 'add_to_context');
+
+if( function_exists('acf_add_options_page') ) {
+  acf_add_options_page();
+}
