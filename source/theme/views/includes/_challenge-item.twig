@@ -1,0 +1,42 @@
+<article class="challenges__item challenge {% if post.challenge_image|length %}challenge--has-image{% endif %}" id="{{ 'challenge-' ~ post.ID }}" style="background-image: url( '{{ TimberImage( post.challenge_image ).src }}' );">
+  <div class="challenge__canister">
+    <div class="container">
+      <div class="container--offset">
+        <div class="challenge__header media">
+            {% if post.thumbnail|length %}
+            <img src="{{ post.thumbnail.src | resize(100,100) }}" alt="" class="media__src challenge__src">
+            {% else %}
+                <img src="http://placecage.com/100/100" alt="" class="media__src challenge__src">
+            {% endif %}
+            <div class="media__body">
+              <h2 class="challenge__heading cms">{{ post.title }}</h2>
+              <div class="challenge__excerpt cms">
+                {{ post.get_preview }}
+              </div>
+              <div class="button-group challenge__actions">
+                  {% if post.thumbnail.src|length %}
+                    <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ challenge.id|url_encode }}" title="Submit an Idea" class="button button--white">Submit an Idea</a>
+                    <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" title="Vote Today" class="button button--white button--outline button-group__last">Vote for an idea</a>
+                  {% else %}
+                    <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ challenge.id|url_encode }}" title="Submit an Idea" class="button cta">Submit an Idea</a>
+                    <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" title="Vote Today" class="button button-group__last cta--outline">Vote for an idea</a>
+                  {% endif %}
+
+                </div>
+            </div>
+        </div>
+
+        <div class="challenge__content">
+          {% include "includes/_challenge-entries.twig" with { 'id': post.challenge_id } only %}
+        </div>
+
+        <footer class="challenge__footer">
+          <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" class="button {{ post.thumbnail.src|length ? 'button--white' : 'button--grey' }} button--outline">See All Ideas</a>
+        </footer>
+      </div>
+      <!-- /.container--inner -->
+    </div>
+    <!-- /.container container--small -->
+  </div>
+  <!-- /.challenge__canister -->
+</article>

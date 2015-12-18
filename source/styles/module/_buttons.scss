@@ -1,10 +1,48 @@
+//
+// @TODO: Add docs to _button!
+//
+@mixin _button {
+  display: inline-block;
+  padding: $vs/2 ($hs/2);
+  line-height: 1;
+  font-weight: 700;
+  border: 2px solid transparent;
+  border-radius: 4px;
+}
+
+
 .button {
   display: inline-block;
   padding: $vs/2 ($hs/2);
   line-height: 1;
   font-weight: 700;
-  border: 0;
+  border: 2px solid transparent;
   border-radius: 4px;
+}
+
+
+.button--white {
+  color: palette(blue, endeavour);
+  background-color: palette(white);
+
+  &:hover,
+  &:focus {
+    color: palette(white);
+    background-color: palette(blue, endeavour);
+  }
+
+  &.button--outline {
+    color: palette(white);
+    border: 2px solid palette(white);
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      color: palette(blue, endeavour);
+      border-color: palette(blue, endeavour);
+      background-color: palette(white);
+    }
+  }
 }
 
 
@@ -80,6 +118,36 @@
 }
 
 
+.button--supernova {
+
+  &:link,
+  &:active,
+  &:visited {
+    color: palette(black, base);
+    background-color: palette(yellow, supernova);
+  }
+
+  &:hover,
+  &:focus {
+    color: palette(white);
+    background-color: palette(blue, cornflower);
+  }
+
+
+  &.button--outline {
+    color: palette(yellow, supernova);
+    border-color: palette(yellow, supernova);
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+      color: palette(blue, cornflower);
+      background-color: palette(yellow, supernova);
+    }
+  }
+}
+
+
 .button-group {
   overflow: hidden;
   font-size: 0;
@@ -119,6 +187,12 @@
       border-radius: 0;
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
+    }
+  }
+
+  .button--outline + .button--outline {
+    @include respond-to('medium and above') {
+      border-left: 0;
     }
   }
 }

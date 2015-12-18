@@ -43,6 +43,7 @@
     "postcss-pxtorem": "^3.1.0",
     "psi": "^2.0.2",
     "run-sequence": "^1.0.2",
+    "stylelint-config-cssrecipes": "^2.0.0",
     "wiredep": "^3.0.0"
   },
   "scripts": {

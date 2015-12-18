@@ -23,6 +23,7 @@ class StarterSite extends TimberSite {
     add_action( 'init', array( $this, 'register_menus' ) );
     add_action( 'admin_menu', array( $this, 'remove_posts' ) );
     add_action( 'init', array( $this, 'add_option_page') );
+    add_action( 'do_meta_boxes', array( $this, 'update_thumbnail_postbox' ) );
     parent::__construct();
   }
 
@@ -55,6 +56,19 @@ class StarterSite extends TimberSite {
     $context['site'] = $this;
 
     return $context;
+  }
+
+  function update_thumbnail_postbox( ) {
+    remove_meta_box( 'postimagediv',
+      'custom_post_type',
+      'side' );
+
+    add_meta_box( 'postimagediv',
+      __('Challenge Icon'),
+      'post_thumbnail_meta_box',
+      'challenge',
+      'normal',
+      'high');
   }
 
   function add_to_twig( $twig ) {

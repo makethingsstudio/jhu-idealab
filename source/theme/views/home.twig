@@ -1,77 +1,69 @@
 {% extends "base.twig" %}
 
-{% block head %}
-    <style type="text/css">
-      .hero--full {
-        background-image: {{TimberImage(post.get_field('hero_image')).src}}
-      }
-    </style>
-{% endblock %}
 
-{% block content %}
-  <div class="hero hero--full hero--mast">
-    <div class="container">
-      <div class="hero__wrap">
-        <header class="hero__header">
-          <h1 class="hero__heading">{{ post.hero_title }}</h1><!-- /.hero-heading -->
-          <p class="hero__subheading">{{ post.hero_tagline }}</p><!-- /.hero-subheading -->
-          <div class="hero__excerpt">{{ post.get_field('hero_intro') }}</div><!-- /.hero-content hero-content -->
-
-          {% if challenges|length %}
-          <h2 class="challenges-count">
-
-            {{ challenge_statement }}
-
-
-          </h2>
-          {% endif %}
-
-        </header><!-- /.hero-header-->
-        <div class="hero__content">
-          <div class="steps steps--mast">
-            <h2 class="steps__heading">{{ post.steps_title }}</h2><!-- /.steps-heading steps-feature-heading -->
-            <ol class="steps__list steps__list--horizontal">
-              {% if post.step_1 %}
-              <li class="steps__item" data-count="1">
-                {{ post.step_1 }}
-              </li>
-              {% endif %}
-              {% if post.step_2 %}
-              <li class="steps__item" data-count="2">
-                {{ post.step_2 }}
-              </li>
-              {% endif %}
-              {% if post.step_3 %}
-              <li class="steps__item" data-count="3">
-                {{ post.step_3 }}
-              </li>
-              {% endif %}
-            </ol><!-- /.step-list step-list-horizontal -->
-          </div><!-- /.steps steps-horizontal steps-feature -->
-        </div><!-- /.hero-content hero-full-content -->
-        {% if post.steps_action %}
-        <div class="hero-footer">
-          <a href="{{ post.steps_action }}" class="button button--rev button--cinnabar">Get Started</a>
-        </div><!-- /.hero-footer -->
-        {% endif %}
-      </div>
-    </div><!-- /.container -->
-  </div><!-- /.hero hero-full -->
 
 
 
+{% block content %}
+  {% include "includes/_home-hero.twig" %}
 
 
   <div class="main-content">
-    <div class="container">
-      <section class="current-challenges current-challenges--full">
-        {% include 'includes/_current-challenges.twig' %}
-      </section> <!-- /.challenges -->
-    </div> <!-- /.container -->
+    <section class="cc-section">
+      <header class="cc-section__header">
+        <div class="container">
+          <div class="container--offset">
+            <h2 class="cc-section__heading">IdeaLab Challenges</h2>
+            <!-- /.cc-section__heading -->
+            {% if current_challenges|length %}
+            <nav class="cc-section__menu button-group">
+              <a class="challenge-nav__link button--supernova button" href="#" title="More Challenges">More Challenges</a>
+              <a class="challenge-nav__link button--supernova button button--outline" href="#" title="Past Challenges">Past Challenges</a>
+              <!-- /.challenge-nav -->
+            </nav>
+            <!-- /.cc-section__menu -->
+            {% endif %}
+          </div>
+          <!-- /.container--offset -->
+        </div>
+        <!-- /.container -->
+      </header>
+      <!-- /.cc-section__header -->
+
+      <div class="cc-section__body {{ current_challenges|length ? 'cc-section__body--has-challenges' }}">
+        {% if current_challenges|length %}
+        <div class="cc-list">
+          {% for challenge in current_challenges %}
+            {% include "includes/_challenge-item.twig" with { 'post' : challenge } only %}
+          {% endfor %}
+        </div>
+        <!-- /.cc-list -->
+        {% else %}
+        <div class="container">
+          <div class="container--offset">
+            <div class="cc-section__content cms">
+                {{ challenge_statement }}
+            </div>
+            <!-- /.cc-section__content.cms -->
+          </div>
+          <!-- /.container--offset -->
+
+          <h2>Past Challenges</h2>
+
+          <div class="cc-list cc-list--past">
+            {% for challenge in past_challenges %}
+              {% include "includes/_past-challenge-item.twig" with { 'post' : challenge } only %}
+            {% endfor %}
+          </div>
+          <!-- /.cc-list -->
+        </div>
+        <!-- /.container -->
+        {% endif %}
+      </div>
+      <!-- /.cc-section__body -->
+    </section>
+    <!-- /.cc-section -->
   </div> <!-- /content -->
-
-
-
 
 
   <div class="sub-content">

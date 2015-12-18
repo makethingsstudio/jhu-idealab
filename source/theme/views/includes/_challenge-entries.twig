@@ -1,0 +1,35 @@
+{% for idea in function( 'ideaScaleIdeas', id )|slice(0, 4) %}
+  {% if loop.first %}
+  <ul class="ideas-list ideas-list--full">
+  {% endif %}
+    <li class="ideas__item idea" id="idea-{{ idea.id }}">
+      <h2 class="idea__heading idea__content">
+        <a href="{{ idea.url }}" title="Link">{{ idea.title }}</a>
+      </h2>
+      <div class="actions idea__actions">
+        <span class="idea__action"title="{{ idea.voteCount }} Votes">
+          {{ idea.voteCount }}
+          <i class="icon icon--small icon-vote">
+            {% if idea.voteCount|length == "1" %}
+              Vote
+            {% else %}
+              Votes
+            {% endif %}
+          </i>
+        </span>
+        <span class="idea__action" title="{{ idea.commentCount }} Comments">
+          {{ idea.commentCount }}
+          <i class="icon icon--small icon-comments">
+            {% if idea.commentCount|length == "1" %}
+              Comment
+            {% else %}
+              Comments
+            {% endif %}
+          </i>
+        </a>
+      </div>
+    </li>
+  {% if loop.last %}
+  </ul>
+  {% endif %}
+{% endfor %}
