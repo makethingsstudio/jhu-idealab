@@ -54,7 +54,7 @@ class StarterSite extends TimberSite {
   function add_to_context( $context ) {
     $context['primary'] = new TimberMenu('primary');
     $context['site'] = $this;
-
+    $context['environment'] = constant( 'WP_LOCAL_DEV' ) ? 'local' : constant( 'WP_LOCAL_DEV' ) ;
     return $context;
   }
 
@@ -81,9 +81,6 @@ class StarterSite extends TimberSite {
 }
 
 new StarterSite();
-
-
-
 
 
 foreach (glob( dirname(__FILE__) . "/functions/*.php") as $filename)

@@ -202,6 +202,49 @@ gulp.task('fonts', () => {
 
 
 /* ==========================================================================
+   § HTML
+   ========================================================================== */
+gulp.task('html', () => {
+  var assets = $.useref({
+    searchPath: '{.tmp,source,./}',
+    base: '../'
+  });
+  var jsFilter = $.filter('**/*.js');
+  var cssFilter = $.filter('**/*.css');
+  var htmlFilter = $.filter('**/*.{php,twig}');
+
+  return gulp.src('source/theme/views/base.twig')
+    .pipe(assets)
+    // Remove any unused CSS
+    // Note: If not using the Style Guide, you can delete it from
+    // the next line to only include styles your project uses.
+    // .pipe($.if('*.css', $.uncss({
+    //   html: [
+    //     'src/index.html'
+    //   ],
+    //   // CSS Selectors for UnCSS to ignore
+    //   ignore: [
+    //     /.navdrawer-container.open/,
+    //     /.app-bar.open/
+    //   ]
+    // })))
+
+    // Concatenate and minify styles
+    // In case you are still using useref build blocks
+    // .pipe($.if('*.css', $.csso()))
+    // Minify any HTML
+    // .pipe($.if('*.html', $.inlineSource(INLINE_OPTIONS)))
+    // .pipe($.if('*.html', $.minifyHtml()))
+    // Output files
+    .pipe(gulp.dest(THEMEPATH + '/views'))
+    .pipe($.size({title: 'html'}));
+})
+
+
+
+
+
+/* ==========================================================================
    § Images
    ========================================================================== */
 gulp.task('images', () => {
@@ -299,4 +342,32 @@ gulp.task('styles', () => {
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest(THEMEPATH + '/styles'))
     .pipe(reload({stream: true}));
+});
+
+
+
+
+
+
+/* ==========================================================================
+   § Wiredep
+   ========================================================================== */
+gulp.task('wiredep', () => {
+  gulp.src('source/styles/main.scss')
+    .pipe(wiredep({
+      ignorePath: /^(\.\.\/)+/,
+      overrides: {
+        'sanitize-css': {
+          'main': 'sanitize.scss'
+        },
+      }
+    }))
+    .pipe(gulp.dest('source/styles'));
+
+  gulp.src('source/templates/views/__base.twig')
+    .pipe(wiredep({
+      exclude: [ /jquery/, 'bower_components/modernizr/modernizr.js' ],
+      ignorePath: /^(\.\.\/)*\.\./,
+    }))
+    .pipe(gulp.dest('source/templates/views'));
 });
