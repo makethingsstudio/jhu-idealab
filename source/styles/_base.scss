@@ -104,8 +104,15 @@ a:visited {
   margin-left: auto;
 }
 
+.alignnone {
+  display: block;
+  float: none;
+  width: 100%;
+  clear: both;
+}
 
 
+.wp-caption,
 img,
 picture,
 video,
@@ -156,8 +163,7 @@ td {
   ol {
     line-height: 1;
   }
-
   li + li {
-    margin-top: .5em;
+    margin-top: 0.5em;
   }
 }

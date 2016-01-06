@@ -28,6 +28,8 @@ class Challenges extends TimberPost {
     return $related;
   }
 
+
+
   public function projects() {
     $related = $this->get_related_projects();
     // if (is_array($related)) {
@@ -35,4 +37,6 @@ class Challenges extends TimberPost {
     // }
     return $related;
   }
+
+
 }
