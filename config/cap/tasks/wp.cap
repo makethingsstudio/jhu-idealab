@@ -3,7 +3,7 @@ namespace :wp do
   task :set_permissions do
     on roles(:app) do
       #execute :chmod, "666 #{shared_path}/.htaccess"
-      execute :chmod, "-R 777 #{shared_path}/content/uploads"
+      execute :chmod, "-R 777 #{shared_path}/www/content/uploads"
     end
   end
 
@@ -17,12 +17,12 @@ namespace :wp do
         secret_keys = capture("curl -s -k https://api.wordpress.org/secret-key/1.1/salt")
         wp_stage = fetch(:stage)
         wp_siteurl = fetch(:stage_url)
-        database = YAML::load_file('cnf/cap/database.yml')[fetch(:stage).to_s]
+        database = YAML::load_file('config/cap/database.yml')[fetch(:stage).to_s]
 
         # Create config file in remote environment
-        db_config = ERB.new(File.read('cnf/cap/templates/wp-config.php.erb')).result(binding)
+        db_config = ERB.new(File.read('config/cap/templates/wp-config.php.erb')).result(binding)
         io = StringIO.new(db_config)
-        upload! io, File.join(shared_path, "/wp-config.php")
+        upload! io, File.join(shared_path, "/www/wp-config.php")
 
         # Create .htaccess in remote environment
         # accessfile = ERB.new(File.read('config/templates/.htaccess.erb')).result(binding)
