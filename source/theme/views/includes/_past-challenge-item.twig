@@ -10,9 +10,11 @@
             {% endif %}
 
             <div class="media__body">
-              <h2 class="challenge__heading cms">{{ post.title }}</h2>
+              <h2 class="challenge__heading">
+                <a href="{{ post.link }}" title="{{ post.title }}">{{ post.title }}</a>
+              </h2>
               <div class="challenge__excerpt cms">
-                {{ post.get_preview }}
+                {{ post.get_preview( 50, false, '' ) }}
               </div>
             </div>
         </div>
@@ -23,7 +25,7 @@
             {% for idea in post.projects %}
             <li class="ideas__item idea--winner idea" id="{{ 'idea-' ~ idea.id }}">
               <h2 class="idea__heading idea__content">
-                <a href="{{ idea.url }}" title="Link">{{ idea.title }}</a>
+                <a href="{{ post.link ~ 'ideas/' ~ idea.slug }}" title="Link">{{ idea.title }}</a>
               </h2>
 
               <div class="idea__content">

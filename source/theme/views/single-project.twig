@@ -1,0 +1,132 @@
+{% extends 'base.twig' %}
+
+
+
+
+
+{% set projectLead = attribute( post.details.customFields, 'Project Lead' ) %}
+
+{% set projectTeam = attribute( post.details.customFields, 'Project Team Members (List individuals and/or groups)') %}
+
+{% set projectCompletion = attribute( post.details.customFields, 'Estimated project completion date' ) %}
+
+{% set amountRequested = attribute( post.details.customFields, 'Amount Requested (10x20: max $20K, DIG: max $2.5K)' ) %}
+
+{% set budgetSummary = attribute( post.details.customFields, 'Brief Budget Summary' ) %}
+
+
+
+
+
+{% block content %}
+<article class="entry-single {{ 'entry-single--' ~ post.post_type }} {{ challenge.challenge_image ? 'entry-single--has-hero' }}" id="{{ 'entry-' ~ post.id }}">
+  <div class="entry-single__hero" style="background-image: url({{ TimberImage( challenge.challenge_image ).src }})">
+    <div class="container">
+      <header class="entry-single__header">
+        <h1 class="entry-single__heading">
+          {{ post.title }}
+        </h1>
+        <!-- /.entry-single__heading -->
+        <div class="entry-single__intro">
+          {{ post.post_excerpt }}
+        </div>
+        <!-- /.entry-single__intro -->
+        <div class="entry-single__challenge-details">
+          <div class="challenge">
+            <div class="challenge__header media">
+              <div class="media__body">
+                <h2 class="challenge__heading">
+                  <span>part of the</span>
+                  <a class="challenge__link" href="{{ challenge.link }}">
+                    {{ challenge.title }}</a>
+                </h2>
+                <!-- /.challenge__heading -->
+              </div>
+              <!-- /.media__body -->
+            </div>
+            <!-- /.challenge__header.media -->
+          </div>
+          <!-- /.challenge -->
+          <div class="idea__actions">
+            <span class="idea__action"title="{{ post.details.voteCount }} Votes">
+              {{ post.details.voteCount }}
+              <i class="icon icon--small icon-vote">
+                {% if post.details.voteCount|length == "1" %}
+                  Vote
+                {% else %}
+                  Votes
+                {% endif %}
+              </i>
+            </span>
+            <span class="idea__action" title="{{ post.details.commentCount }} Comments">
+              {{ post.details.commentCount }}
+              <i class="icon icon--small icon-comments">
+                {% if post.details.commentCount|length == "1" %}
+                  Comment
+                {% else %}
+                  Comments
+                {% endif %}
+              </i>
+            </span>
+          </div>
+          <!-- /.idea__actions -->
+        </div>
+        <!-- /.entry-single__challenge-details -->
+      </header>
+      <!-- /.entry-single__header -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.entry-single__hero -->
+  <div class="entry-single__body">
+    <div class="container">
+      <div class="entry-single__content">
+        <div class="main-content cms">
+          {{ post.content }}
+        </div>
+        <!-- /.main-content -->
+        <aside class="sub-content">
+
+          <div class="project-details">
+            {% if projectLead | length %}
+            <h3 class="project-details__heading">Project Leads</h3>
+            <div class="project-details__content cms">{{ projectLead | wpautop }}</div>
+            <!-- /.project-details__content cms -->
+            {% endif %}
+
+            {% if projectTeam | length %}
+            <h3 class="project-details__heading">Project Team</h3>
+            <div class="project-details__content cms">{{ projectTeam | wpautop }}</div>
+            <!-- /.project-details__content cms -->
+            {% endif %}
+
+            {% if projectCompletion | length %}
+            <h3 class="project-details__heading">Project Completion</h3>
+            <div class="project-details__content cms">{{ projectCompletion | wpautop }}</div>
+            <!-- /.project-details__content cms -->
+            {% endif %}
+
+            {% if amountRequested | length  %}
+            <h3 class="project-details__heading">Amount Requested</h3>
+            <div class="project-details__content cms">{{ amountRequested }}</div>
+            <!-- /.project-details__content cms -->
+            {% endif %}
+
+            {% if budgetSummary %}
+            <h3 class="project-details__heading">Budget Summary</h3>
+            <div class="project-details__content cms">{{ budgetSummary }}</div>
+            <!-- /.project-details__content cms -->
+            {% endif %}
+          </div>
+          <!-- /.project-details -->
+
+        </aside>
+        <!-- /.sub-content -->
+      </div>
+      <!-- /.entry-single__content -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.entry-single__body -->
+</article>
+{% endblock %}

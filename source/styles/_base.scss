@@ -1,12 +1,12 @@
 html {
-  @if map-get($dev, baseline) == true {
-    $h: math-strip-units($vs);
-    background-image: url(http://basehold.it/i/#{$h});
-  }
-
   font-family: $font-default-stack;
   font-size: $base-font-size;
   line-height: $base-lh-ratio;
+  @if map-get($dev, baseline) == true {
+    $h: math-strip-units($vs);
+
+    background-image: url(http://basehold.it/i/#{$h});
+  }
 }
 
 
@@ -36,17 +36,17 @@ h2 {
 }
 
 h3 {
-  font-size: 19px;
-  line-height: 36px;
   margin-top: 18px;
   margin-bottom: 18px;
+  font-size: 19px;
+  line-height: 36px;
 }
 
 h4 {
-  font-size: 14px;
-  line-height: 18px;
   margin-top: 18px;
   margin-bottom: 18px;
+  font-size: 14px;
+  line-height: 18px;
 }
 
 blockquote,
@@ -62,23 +62,22 @@ a:active,
 a:visited {
   text-decoration: none;
   color: palette(blue, endeavour);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 a:hover,
 a:visited {
-  transition-duration: .1s;
+  transition-duration: 0.1s;
 }
 
 
 .help {
-  font-size: .8em;
+  font-size: 0.8em;
 }
 
 .alignleft {
   float: left;
   margin: 0 $hs $vs 0;
-
   &.jhu-logo {
     margin-top: $vs*2;
     margin-right: $vs*3;
@@ -89,11 +88,76 @@ a:visited {
 .alignright {
   float: right;
   margin: 0 0 $vs $hs;
-
   &.jhu-logo {
     margin-top: $vs*2;
-    margin-left: $vs*3;
     margin-bottom: $vs*2;
+    margin-left: $vs*3;
   }
 }
 
+
+.aligncenter {
+  display: block;
+  float: none;
+  clear: both;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+
+
+img,
+picture,
+video,
+embed,
+iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+
+
+
+
+table {
+  width: 100%;
+  max-width: 100%;
+  font-size: 16px;
+  table-layout: fixed;
+}
+
+thead {
+  color: palette(white);
+  background-color: palette(gray, friar);
+}
+
+th {
+  padding: $vs*0.5 $hs*0.5;
+  font-size: 16px;
+  text-align: left;
+  vertical-align: top;
+}
+
+th + th {
+  border-left: 1px solid palette(white);
+}
+
+td {
+  padding: $vs*0.5 $hs*0.5;
+  vertical-align: top;
+}
+
+
+
+
+
+.cms {
+  ul,
+  ol {
+    line-height: 1;
+  }
+
+  li + li {
+    margin-top: .5em;
+  }
+}

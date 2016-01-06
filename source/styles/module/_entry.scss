@@ -1,3 +1,128 @@
 .entry-single {
+}
 
+
+.entry-single__hero {
+  position: relative;
+  z-index: 1;
+  padding-top: $vs*2;
+  padding-bottom: $vs*2;
+
+  @include respond-to('medium and above') {
+    padding-top: $vs*4;
+    padding-bottom: $vs*4;
+  }
+}
+
+
+.entry-single__header {
+
+  @include respond-to('medium and above') {
+    width: span(10);
+  }
+
+  .entry-single__hero & {
+
+    @include respond-to('medium and above') {
+      width: span(6);
+      margin: 0 auto
+    }
+  }
+}
+
+
+.entry-single__heading {
+
+  .entry-single__hero & {
+    margin: 0;
+    text-align: center;
+
+    @include respond-to('medium and above') {
+      font-family: $font-quadon;
+      font-weight: 200;
+      font-size: 66px;
+      line-height: $base-lh-ratio;
+      color: palette(white);
+    }
+  }
+}
+
+
+.entry-single__intro {
+
+  .entry-single__hero & {
+    font-size: 16px;
+    color: palette(white);
+  }
+}
+
+
+.entry-single__challenge-details {
+  margin-top: $vs;
+  text-align: center;
+
+  @include respond-to('medium and above') {
+    margin-top: $vs*2;
+  }
+
+  .media__src {
+    float: none;
+    display: none;
+    vertical-align: top;
+    margin-right: $hs*0.5;
+  }
+
+  .media__body {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .challenge__link {
+    &:link,
+    &:visited,
+    &:active {
+      color: palette(white);
+    }
+
+    &:hover,
+    &:focus {
+      color: palette(yellow, supernova);
+    }
+  }
+
+  .challenge__heading span {
+    display: block;
+    font-size: 14px;
+    line-height: 1;
+    text-transform: uppercase;
+    text-align: center;
+  }
+
+  .idea__actions {
+    color: palette(white);
+    background-color: transparent;
+  }
+}
+
+
+.entry-single__body {
+  position: relative;
+  z-index: 2;
+
+  @include respond-to('medium and above') {
+    margin-top: $vs*-3;
+  }
+}
+
+.entry-single__content {
+  overflow: hidden;
+  padding-top: $vs*2;
+  background-color: palette(white);
+
+  @include respond-to('medium and above') {
+    padding-top: $vs*3;
+
+    @include pad(1);
+    @include squish(2);
+  }
 }

@@ -7,12 +7,6 @@
     padding-bottom: $vs*2;
   }
 
-  .entry-single__header {
-    @include respond-to('medium and above') {
-      width: span(10);
-    }
-  }
-
   .main-content {
     @include respond-to('medium and above') {
       @include span(8);
@@ -43,5 +37,32 @@
   .sub-content {
     @include span(4 last);
     @include post(1);
+  }
+}
+
+
+
+
+
+.l-interior--idea {
+
+  .main {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .main-content {
+
+    @include respond-to('medium and above') {
+      @include span( first 7 of 10 );
+    }
+  }
+
+  .sub-content {
+
+    @include respond-to('medium and above') {
+
+      @include span( last 3 of 10 );
+    }
   }
 }
