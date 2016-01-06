@@ -11,7 +11,7 @@
             <div class="media__body">
               <h2 class="challenge__heading cms">{{ post.title }}</h2>
               <div class="challenge__excerpt cms">
-                {{ post.get_preview }}
+                {{ post.get_preview( 50, false, '' ) }}
               </div>
               <div class="button-group challenge__actions">
                   {% if post.thumbnail.src|length %}
