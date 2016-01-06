@@ -1,0 +1,11 @@
+{% extends 'template-challenges.twig' %}
+
+
+{% block challenge_content %}
+  <div class="cc-list cc-list--past">
+    {% for challenge in past_challenges %}
+      {% include "includes/_past-challenge-item.twig" with { 'post' : challenge } only %}
+    {% endfor %}
+  </div>
+  <!-- /.cc-list -->
+{% endblock %}

@@ -30,25 +30,24 @@
         <!-- /.page-nav -->
       </header>
 
-      <div class="main-content">
-        {% if current_challenges|length %}
-        <div class="cc-list">
-          {% for challenge in current_challenges %}
-            {% include "includes/_challenge-item.twig" with { 'post' : challenge } only %}
-          {% endfor %}
-        </div>
-        <!-- /.cc-list -->
-        {% else %}
-          <div class="cms">
-            {{ challenge_statement|wpautop }}
-            <p><a class="button button--cornflower" href="{{ function('get_permalink', 125 ) }}">
-                        View Past Challenges
-                      </a></p>
-          </div>
-          <!-- /.cms -->
-        {% endif %}
+      {% block challenge_content %}
+      {% if current_challenges|length %}
+      <div class="cc-list">
+        {% for challenge in current_challenges %}
+          {% include "includes/_challenge-item.twig" with { 'post' : challenge } only %}
+        {% endfor %}
       </div>
-      <!-- /.main-content -->
+      <!-- /.cc-list -->
+      {% else %}
+        <div class="main-content cms">
+          {{ challenge_statement|wpautop }}
+          <p><a class="button button--cornflower" href="{{ function('get_permalink', 125 ) }}">
+                      View Past Challenges
+                    </a></p>
+        </div>
+        <!-- /.cms -->
+      {% endif %}
+      {% endblock %}
     </div>
     <!-- /.container -->
   </article>
