@@ -19,12 +19,21 @@
 .idea {
   border: 2px solid palette(white, ebb);
   border-radius: 4px;
+
+  .challenge--past & {
+    border: 0;
+  }
 }
 
 .idea__heading,
 .idea__content {
   padding-right: $hs/2;
   padding-left: $hs/2;
+
+  .challenge--past & {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 .idea__heading {
@@ -40,6 +49,30 @@
   a {
     color: palette(grey, friar);
   }
+
+  .challenge--past & {
+    @include respond-to('medium and above') {
+      padding-top: 0;
+      padding-bottom: 0;
+      min-height: auto;
+      font-size: 16px;
+    }
+  }
+}
+
+.idea__link {
+  .challenge--past & {
+    &:link,
+    &:active,
+    &:visited {
+      color: palette(white);
+    }
+
+    &:hover,
+    &:focus {
+      color: palette(yellow, supernova);
+    }
+  }
 }
 
 .idea__content {
@@ -50,6 +83,11 @@
   padding: ($vs/2) ($hs/2);
   line-height: 1;
   background-color: palette(white, ebb);
+
+  .challenge--past & {
+    padding: 0;
+    background-color: transparent;
+  }
 }
 
 .idea__action {
@@ -70,6 +108,10 @@
     color: darken(palette(grey, friar), 20%);
   }
 
+  .challenge--past & {
+    color: palette(white);
+  }
+
   + .idea__action {
     margin-left: $hs/2;
   }
@@ -79,7 +121,18 @@
     top: 0;
     left: 0;
   }
+
+
 }
+
+
+.ideas-list__heading {
+  margin: 0;
+  font-size: 21px;
+  font-weight: bold;
+  color: palette(yellow, supernova);
+}
+
 
 .ideas-list--full {
   .idea {

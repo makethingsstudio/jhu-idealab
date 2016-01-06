@@ -7,7 +7,7 @@
 
 .container--offset {
   @include respond-to('medium and above') {
-    @include pre(2);
+    @include pad(2);
   }
 }
 

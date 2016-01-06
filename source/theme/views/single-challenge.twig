@@ -1,0 +1,50 @@
+{% extends 'base.twig' %}
+
+
+
+
+
+{% block content %}
+<article class="entry-single {{ 'entry-single--' ~ post.post_type }} {{ post.challenge_image ? 'entry-single--has-hero' }}" id="{{ 'entry-' ~ post.id }}">
+  <div class="entry-single__hero" style="background-image: url({{ TimberImage( post.challenge_image ).src }})">
+    <div class="container">
+      <header class="entry-single__header">
+        <h1 class="entry-single__heading">
+          {{ post.title }}
+        </h1>
+        <!-- /.entry-single__heading -->
+        <div class="entry-single__intro">
+          {{ post.post_excerpt }}
+        </div>
+        <!-- /.entry-single__intro -->
+        <div class="entry-single__challenge-details">
+        {{ post.challenge_status | print_r }}
+          {% if post.challenge_status == 1 %}
+          <div class="button-group challenge__actions">
+            <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ challenge.id|url_encode }}" title="Submit an Idea" class="button cta">Submit an Idea</a>
+            <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" title="Vote Today" class="button button-group__last cta--outline">Vote for an idea</a>
+          </div>
+          {% endif %}
+        </div>
+        <!-- /.entry-single__challenge-details -->
+      </header>
+      <!-- /.entry-single__header -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.entry-single__hero -->
+  <div class="entry-single__body">
+    <div class="container">
+      <div class="entry-single__content">
+        <div class="main-content cms">
+          {{ post.content }}
+        </div>
+        <!-- /.main-content -->
+      </div>
+      <!-- /.entry-single__content -->
+    </div>
+    <!-- /.container -->
+  </div>
+  <!-- /.entry-single__body -->
+</article>
+{% endblock %}

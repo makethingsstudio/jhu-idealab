@@ -16,10 +16,7 @@
 
 
 .entry-single__header {
-
-  @include respond-to('medium and above') {
-    width: span(10);
-  }
+  overflow: hidden;
 
   .entry-single__hero & {
 
@@ -33,17 +30,35 @@
 
 .entry-single__heading {
 
+  @include respond-to('medium and above') {
+    @include span(10);
+  }
+
   .entry-single__hero & {
     margin: 0;
     text-align: center;
 
     @include respond-to('medium and above') {
+      float: none;
+      width: auto;
+      margin: 0;
       font-family: $font-quadon;
       font-weight: 200;
       font-size: 66px;
       line-height: $base-lh-ratio;
       color: palette(white);
     }
+  }
+}
+
+
+.entry-single__page-nav {
+  margin: 0 auto $vs*2;
+
+  @include respond-to('medium and above') {
+
+    @include span(5 last);
+    margin-bottom: 0;
   }
 }
 

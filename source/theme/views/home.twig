@@ -17,8 +17,8 @@
             <!-- /.cc-section__heading -->
             {% if current_challenges|length %}
             <nav class="cc-section__menu button-group">
-              <a class="challenge-nav__link button--supernova button" href="#" title="More Challenges">More Challenges</a>
-              <a class="challenge-nav__link button--supernova button button--outline" href="#" title="Past Challenges">Past Challenges</a>
+              <a class="challenge-nav__link button--supernova button" href="/challenges" title="More Challenges">More Challenges</a>
+              <a class="challenge-nav__link button--supernova button button--outline" href="/challenges/past-challenges" title="Past Challenges">Past Challenges</a>
               <!-- /.challenge-nav -->
             </nav>
             <!-- /.cc-section__menu -->
@@ -48,7 +48,12 @@
           </div>
           <!-- /.container--offset -->
 
-          <h2>Past Challenges</h2>
+          <div class="container--offset">
+            <h2 class="cc-list__heading">Past Challenges</h2>
+            <a class="cc-list__button button--cornflower button--outline button" href="/challenges/past-challenges" title="More Challenges">All Past Challenges</a>
+          </div>
+          <!-- /.container--offset -->
+
 
           <div class="cc-list cc-list--past">
             {% for challenge in past_challenges %}

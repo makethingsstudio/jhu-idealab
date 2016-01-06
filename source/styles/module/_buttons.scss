@@ -115,6 +115,22 @@
     color: palette(blue, cornflower);
     background-color: palette(white, ebb);
   }
+
+  &.button--outline {
+    &:link,
+    &:active,
+    &:visited {
+      color: palette(blue, cornflower);
+      border: 2px solid palette(blue, cornflower);
+      background-color: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      color: palette(white);
+      background-color: palette(blue, cornflower);
+    }
+  }
 }
 
 

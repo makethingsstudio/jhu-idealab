@@ -14,9 +14,6 @@
   $context['challenge'] = $post->challenge_details;
 
 
-  $context['wp_title'] .= ' - ' . $post->title();
-
-
   $context['html_class'] = 'l-interior l-interior--idea';
   $context['masthead_class'] = 'masthead--interior masthead--past-challenge';
 
