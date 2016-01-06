@@ -29,7 +29,7 @@
 .masthead__primary {
   margin: 0 auto $vs*2;
   @include respond-to('medium and above') {
-    @include span(5 last);
+    @include span(6 last);
     margin-bottom: 0;
   }
 }

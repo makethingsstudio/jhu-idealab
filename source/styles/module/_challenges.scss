@@ -188,9 +188,11 @@
 
 .cc-list--past {
 
-  @include respond-to('medium and above') {
-    display: flex;
-    flex-wrap: wrap;
+  .flexbox & {
+    @include respond-to('medium and above') {
+      display: flex;
+      flex-wrap: wrap;
+    }
   }
 
   .challenge--past:first-child {
@@ -205,8 +207,10 @@
 
 .challenge--past {
 
-  @include respond-to('medium and above') {
-    display: flex;
+  .flexbox & {
+    @include respond-to('medium and above') {
+      display: flex;
+    }
   }
 
   &:nth-child(1),
@@ -233,6 +237,7 @@
 .challenge__canister {
   position: relative;
   z-index: 2;
+  width: 100%;
 
   .challenge--past & {
     padding: $vs $hs;
