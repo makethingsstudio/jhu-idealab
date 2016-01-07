@@ -37,4 +37,4 @@ set :keep_releases, 2
 #   § Linked Files
 # ==========================================================================
 set :linked_files, %w{www/wp-config.php}
-set :linked_dirs, %w{www/content/uploads}
+set :linked_dirs, %w{www/bower_components www/content/uploads}

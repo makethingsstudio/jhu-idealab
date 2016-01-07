@@ -205,16 +205,17 @@ gulp.task('fonts', () => {
    § HTML
    ========================================================================== */
 gulp.task('html', () => {
-  var assets = $.useref({
-    searchPath: '{.tmp,source,./}',
-    base: '../'
-  });
-  var jsFilter = $.filter('**/*.js');
-  var cssFilter = $.filter('**/*.css');
-  var htmlFilter = $.filter('**/*.{php,twig}');
+//  var assets = $.useref({
+//    searchPath: '{.tmp,source,dist,./}',
+//  });
+//  var jsFilter = $.filter('**/*.js');
+//  var cssFilter = $.filter('**/*.css');
+//  var htmlFilter = $.filter('**/*.{php,twig}');
 
   return gulp.src('source/theme/views/base.twig')
-    .pipe(assets)
+    .pipe($.useref({
+      searchPath: '{.tmp,source,dist,./}',
+    }))
     // Remove any unused CSS
     // Note: If not using the Style Guide, you can delete it from
     // the next line to only include styles your project uses.
