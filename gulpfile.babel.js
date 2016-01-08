@@ -17,6 +17,19 @@
 'use strict';
 
 
+
+import del from 'del';
+import bower from 'main-bower-files';
+import browserSync from 'browser-sync';
+import gulp from 'gulp';
+import gulpLoadPlugins from 'gulp-load-plugins';
+import path from 'path';
+import pagespeed from 'psi'
+import pxtorem from 'postcss-pxtorem';
+import runSequence from 'run-sequence';
+import {stream as wiredep} from 'wiredep';
+
+
 const APPURL = 'idealab.jhu.dev';
 const DEST = 'dist';
 const THEMENAME = 'jhu-idealab';
@@ -93,21 +106,6 @@ const MINIFY_OPTIONS = {comments:true,spare:true};
 const PLUMBER_OPTIONS = {
   errorHandler: true
 };
-
-
-
-
-
-import del from 'del';
-import bower from 'main-bower-files';
-import browserSync from 'browser-sync';
-import gulp from 'gulp';
-import gulpLoadPlugins from 'gulp-load-plugins';
-import path from 'path';
-import pagespeed from 'psi'
-import pxtorem from 'postcss-pxtorem';
-import runSequence from 'run-sequence';
-import {stream as wiredep} from 'wiredep';
 
 
 const $ = gulpLoadPlugins();
