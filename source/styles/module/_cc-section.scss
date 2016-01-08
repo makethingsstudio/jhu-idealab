@@ -1,5 +1,6 @@
 .cc-section {
   border-top: 9px solid palette(yellow, supernova);
+  background-color: rgba( palette(blue, midnight), 0.9);
 }
 
 .cc-section__header {
@@ -22,8 +23,7 @@
   background: palette(yellow, supernova);
 
   @include respond-to("medium and above") {
-
-    @include span(6 of 14);
+    display: inline-block;
   }
 }
 
@@ -32,8 +32,9 @@
 
   @include respond-to("medium and above") {
 
-    @include span(6 of 14);
+    @include span(last 6 of 14);
     margin-top: 18px;
+    text-align: right;
   }
 }
 
