@@ -68,7 +68,7 @@ $past_challenges_arr = array(
   'order'          => 'asc',
   'orderby'        => 'date',
   'post_type'      => 'challenge',
-  'posts_per_page' => -1,
+  'posts_per_page' => 5,
   'meta_query' => array(
     array(
         'key' => 'challenge_status', // name of custom field
