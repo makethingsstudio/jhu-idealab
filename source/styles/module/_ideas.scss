@@ -14,6 +14,22 @@
     margin-bottom: 0;
     vertical-align: top;
   }
+
+  .challenge--past & {
+
+    @include respond-to('medium and above') {
+      margin-bottom: 0;
+    }
+  }
+
+  .challenge--past & + & {
+
+    @include respond-to('medium and above') {
+      padding-top: $vs*.5;
+      margin-top: $vs*.5;
+      border-top: 1px solid palette(white);
+    }
+  }
 }
 
 .idea {

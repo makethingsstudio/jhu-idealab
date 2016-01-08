@@ -19,7 +19,9 @@
 
         {% if post.projects|length %}
         <div class="challenge__content">
-          <h3 class="ideas-list__heading">Winner</h3>
+          <h3 class="ideas-list__heading">
+            {{ function( '_n', 'Winner', 'Winners', post.projects | length ) }}
+          </h3>
           <ul class="ideas-list ideas-list--winner {{ post.projects|length > 1 ? 'ideas-list--multi-winner' }}">
             {% for idea in post.projects %}
             <li class="ideas__item idea--winner idea" id="{{ 'idea-' ~ idea.id }}">
@@ -31,30 +33,8 @@
                 {{ idea.get_preview(50, false, '')}}
               </div>
               <!-- /.idea__content -->
-
-              <div class="actions idea__actions">
-                <span class="idea__action"title="{{ idea.details.voteCount }} Votes">
-                  {{ idea.details.voteCount }}
-                  <i class="icon icon--small icon-vote">
-                    {% if idea.details.voteCount|length == "1" %}
-                      Vote
-                    {% else %}
-                      Votes
-                    {% endif %}
-                  </i>
-                </span>
-                <span class="idea__action" title="{{ idea.details.commentCount }} Comments">
-                  {{ idea.details.commentCount }}
-                  <i class="icon icon--small icon-comments">
-                    {% if idea.details.commentCount|length == "1" %}
-                      Comment
-                    {% else %}
-                      Comments
-                    {% endif %}
-                  </i>
-                </a>
-              </div>
             </li>
+            <!-- /.ideas__item -->
             {% endfor %}
           </ul>
         </div>
