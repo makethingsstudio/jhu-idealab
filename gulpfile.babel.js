@@ -51,6 +51,7 @@ const AUTOPREFIXER_BROWSERS = [
 const processors = [
   pxtorem({
       replace: false
+      rootValue: 14
   })
 ];
 
