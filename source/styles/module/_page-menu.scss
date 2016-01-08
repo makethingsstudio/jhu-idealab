@@ -51,6 +51,14 @@
                 transform: scaleX(1);
       }
     }
+
+    .entry-single__hero & {
+      &:link,
+      &:active,
+      &:visited {
+        color: palette(yellow, supernova);
+      }
+    }
   }
 
   .current-menu-item {
@@ -67,6 +75,13 @@
         -webkit-transform: scaleX(1);
                 transform: scaleX(1);
       }
+    }
+  }
+
+  .entry-single__hero & {
+
+    @include respond-to('medium and above') {
+      padding-bottom: $vs*4;
     }
   }
 }

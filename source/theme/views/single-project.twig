@@ -22,6 +22,29 @@
 <article class="entry-single {{ 'entry-single--' ~ post.post_type }} {{ challenge.challenge_image ? 'entry-single--has-hero' }}" id="{{ 'entry-' ~ post.id }}">
   <div class="entry-single__hero" style="background-image: url({{ TimberImage( challenge.challenge_image ).src }})">
     <div class="container">
+      <nav class="entry-single__page-nav">
+        <ul class="page-nav nav">
+          {% for item in primary.get_items if ( item.id == 127 ) %}
+            <li class="page-nav__item {{ item.classes | join( ' ' ) }}" id="{{ 'page-nav__item-' ~ item.id }}">
+              <a href="{{ item.link }}" title="{{ item.title }}">
+                {{ item.title }}
+              </a>
+            </li>
+            {% for child in item.get_children %}
+                <li class="page-nav__item {{ child.classes | join( ' ' ) }}">
+                  <a href="{{ child.link }}" title="{{ child.title }}">
+                    {{ child.title}}
+                  </a>
+                </li>
+            {% endfor %}
+          {% endfor %}
+        </ul>
+        <!-- /.page-nav -->
+      </nav>
+      <!-- /.page-nav -->
+    </div>
+    <!-- /.container -->
+    <div class="container">
       <header class="entry-single__header">
         <h1 class="entry-single__heading">
           {{ post.title }}
