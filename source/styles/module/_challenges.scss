@@ -145,8 +145,8 @@
   background-size: cover;
 
   @include respond-to("medium and above") {
-    padding-top: $vs*2;
-    padding-bottom: $vs*2;
+    padding-top: $vs*4;
+    padding-bottom: $vs*4;
   }
 
   &::after {
