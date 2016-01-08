@@ -1,15 +1,16 @@
 .cc-section {
-  border-top: 9px solid palette(yellow, supernova);
-  background-color: rgba( palette(blue, midnight), 0.9);
+  overflow: hidden;
+  background-color: rgba(palette(blue, sherpa), .9);
 }
 
 .cc-section__header {
   position: relative;
   z-index: 2;
   padding-bottom: 24px;
+  border-top: 9px solid palette(yellow, supernova);
 
   @include respond-to("medium and above") {
-    padding-bottom: 54px;
+    // padding-bottom: 54px;
   }
 }
 
@@ -46,7 +47,7 @@
 .cc-section__body--has-challenges {
 
   @include respond-to( 'medium and above' ) {
-    margin-top: -9em;
+    margin-top: -8.5em;
   }
 }
 

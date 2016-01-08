@@ -85,7 +85,9 @@
   clear: both;
 
   .challenge--has-image:first-child {
-    padding-top: 9em;
+    @include respond-to('medium and above') {
+      padding-top: 11em;
+    }
   }
 }
 
