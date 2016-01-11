@@ -37,6 +37,11 @@
   .entry-single__hero & {
     color: palette(white);
   }
+  .challenge--list & {
+    font-size: 21px;
+    line-height: 24px;
+    color: palette( blue, cloudburst );
+  }
 }
 
 .challenge__src {
@@ -44,6 +49,12 @@
   @include respond-to("medium and above") {
 
     @include span(1 of 12);
+  }
+
+  .challenge--list & {
+    @include respond-to('medium and above') {
+      @include span(1 of 7);
+    }
   }
 }
 
@@ -69,6 +80,11 @@
     float: none;
     width: auto;
     margin-right: 0;
+  }
+
+  .challenge--list & {
+    float: none;
+    width: auto;
   }
 }
 
@@ -103,6 +119,13 @@
 
     @include span(6 of 14);
   }
+}
+
+
+.cc-list__date {
+  font-size: 36px;
+  text-align: center;
+  color: palette( blue, cloudburst );
 }
 
 
@@ -181,6 +204,22 @@
   .idea__action,
   .idea__actions {
     color: palette(blue, midnight);
+  }
+}
+
+.challenge--list {
+  .challenge__content {
+    @include respond-to('medium and above') {
+      @include pre(1 of 7);
+    }
+  }
+}
+
+.challenge--list + .challenge--list {
+  margin-top: $vs*2;
+
+  @include respond-to('medium and above') {
+    margin-top: $vs*4;
   }
 }
 

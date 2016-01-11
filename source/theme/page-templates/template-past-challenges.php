@@ -37,8 +37,8 @@ $context['post'] = $post;
 $context['challenge_statement'] = get_field( 'challenge_statement', 'options' );
 
 
-$context['html_class'] = 'l-interior l-interior--challenges l-interior--current-challenges';
-$context['masthead_class'] = 'masthead--interior masthead--current-challenge';
+$context['html_class'] = 'l-interior l-interior--challenges l-interior--past-challenges';
+$context['masthead_class'] = 'masthead--interior masthead--past-challenge';
 
 
 Timber::render( 'template-challenges-past.twig', $context );

@@ -1,23 +1,22 @@
 .l-interior {
   background-color: palette(grey, pampas);
-
   .main {
     overflow: hidden;
     padding-top: $vs*3;
     padding-bottom: $vs*2;
   }
-
   .main-content {
     @include respond-to('medium and above') {
       @include span(8);
+
       font-size: 21px;
     }
     @include respond-to('largest only') {
       @include span(10);
+
       font-size: 21px;
     }
   }
-
   .sub-content {
     @include respond-to('medium and above') {
       @include span(6 last);
@@ -33,7 +32,6 @@
   .main-content {
     @include span(10);
   }
-
   .sub-content {
     @include span(4 last);
     @include post(1);
@@ -45,24 +43,33 @@
 
 
 .l-interior--idea {
-
   .main {
     padding-top: 0;
     padding-bottom: 0;
   }
-
   .main-content {
-
     @include respond-to('medium and above') {
       @include span( first 7 of 10 );
     }
   }
-
   .sub-content {
-
     @include respond-to('medium and above') {
-
       @include span( last 3 of 10 );
+    }
+  }
+}
+
+
+
+
+
+.l-interior--past-challenges {
+  .cc-list--past {
+    @include respond-to( 'medium and above' ) {
+      display: block;
+      overflow: hidden;
+      width: span(7);
+      margin: 0 auto;
     }
   }
 }

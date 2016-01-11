@@ -37,8 +37,14 @@
   border: 2px solid palette(white, ebb);
   border-radius: 4px;
 
-  .challenge--past & {
+  .challenge--past &,
+  .challenge--list & {
     border: 0;
+    border-radius: 0
+  }
+
+  .challenge--list & + & {
+    margin-top: $vs*0.5;
   }
 }
 
@@ -67,13 +73,19 @@
     color: palette(grey, friar);
   }
 
-  .challenge--past & {
+  .challenge--past &,
+  .challenge--list & {
     @include respond-to('medium and above') {
       padding-top: 0;
       padding-bottom: 0;
       min-height: auto;
       font-size: 16px;
     }
+  }
+
+  .challenge--list & {
+    padding-right: 0;
+    padding-left: 0;
   }
 }
 
@@ -110,6 +122,13 @@
 
   &:last-child {
     padding-bottom: 0;
+  }
+
+  .challenge--list & {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 12px;
+    line-height: 15px;
   }
 }
 
@@ -165,6 +184,10 @@
   font-size: 21px;
   font-weight: bold;
   color: palette(yellow, supernova);
+
+  .challenge--list & {
+    font-size: 16px;
+  }
 }
 
 

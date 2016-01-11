@@ -23,7 +23,7 @@
     <ul class="ideas-list ideas-list-winner {{ post.projects|length > 1 ? 'ideas-list--multi-winner' }}">
       {% for idea in post.projects %}
       <li class="ideas__item idea--winner idea" id="{{ 'idea-' ~ idea.id }}">
-        <h5 class="idea__heading idea__content">
+        <h5 class="idea__heading">
           <a class="idea__link" href="{{ post.link ~ 'ideas/' ~ idea.slug }}" title="Link">{{ idea.title }}</a>
         </h5>
 
