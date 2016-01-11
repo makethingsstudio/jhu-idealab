@@ -16,7 +16,7 @@ $context['post'] = $post;
    ========================================================================== */
    $past_challenges_arr = array(
      'order'          => 'DESC',
-     'orderby'        => 'meta_value_date',
+     'orderby'        => 'meta_value',
      'post_type'      => 'challenge',
      'posts_per_page' => -1,
      'meta_type' => 'DATE',

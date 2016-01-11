@@ -65,11 +65,12 @@
 
 .l-interior--past-challenges {
   .cc-list--past {
+    margin-top: $vs*2;
     @include respond-to( 'medium and above' ) {
       display: block;
       overflow: hidden;
       width: span(7);
-      margin: 0 auto;
+      margin: $vs*4 auto 0;
     }
   }
 }

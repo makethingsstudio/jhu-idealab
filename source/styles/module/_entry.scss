@@ -31,12 +31,6 @@
   position: relative;
   z-index: 2;
   overflow: hidden;
-  .entry-single__hero & {
-    @include respond-to('medium and above') {
-      width: span(6);
-      margin: 0 auto;
-    }
-  }
 }
 
 
@@ -47,8 +41,8 @@
   .entry-single__hero & {
     @include respond-to('medium and above') {
       float: none;
-      width: auto;
-      margin: 0;
+      width: span(12);
+      margin: 0 auto;
       font-family: $font-quadon;
       font-size: 66px;
       font-weight: 200;
@@ -82,6 +76,12 @@
   .entry-single__hero & {
     font-size: 16px;
     color: palette(white);
+    @include respond-to('medium and above') {
+      float: none;
+      width: span(8);
+      margin: 0 auto;
+      text-align: center;
+    }
   }
 }
 

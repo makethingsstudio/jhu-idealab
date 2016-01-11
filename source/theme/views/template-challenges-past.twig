@@ -5,8 +5,7 @@
   <div class="cc-list cc-list--past">
     {% for year_month, batched_entries in past_challenges | date_batch('challenge_end_date', 'Ymd') %}
 
-      {% if year_month | date( 'Y' ) == date().format( 'Y' ) %}
-      {% else %}
+
       <div class="cc-list__group">
         <h2 class="cc-list__date">{{ year_month | date( 'Y' ) }}</h2>
 
@@ -15,7 +14,7 @@
         {% endfor %}
       </div>
       <!-- /.cc-list__group -->
-      {% endif %}
+
 
     {% endfor %}
   </div>
