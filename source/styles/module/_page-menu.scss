@@ -7,6 +7,11 @@
     text-align: right;
   }
 
+  .entry-single__hero & {
+    position: relative;
+    z-index: 2;
+  }
+
   li {
     position: relative;
   }
@@ -53,6 +58,7 @@
     }
 
     .entry-single__hero & {
+
       &:link,
       &:active,
       &:visited {

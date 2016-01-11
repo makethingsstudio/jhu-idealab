@@ -17,7 +17,7 @@ class StarterSite extends TimberSite {
     add_theme_support( 'post-thumbnails' );
     add_theme_support( 'menus' );
     add_filter( 'timber_context', array( $this, 'add_to_context' ) );
-    // add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
+    add_filter( 'get_twig', array( $this, 'add_to_twig' ) );
     add_action( 'init', array( $this, 'register_post_types' ) );
     add_action( 'init', array( $this, 'register_taxonomies' ) );
     add_action( 'init', array( $this, 'register_menus' ) );
@@ -75,10 +75,11 @@ class StarterSite extends TimberSite {
     /* this is where you can add your own fuctions to twig */
     // $twig->addExtension( new Twig_Extension_StringLoader() );
     // $twig->addFilter( 'myfoo', new Twig_Filter_Function( 'myfoo' ) );
+    $twig->addFilter( 'date_batch',  new Twig_Filter_Function( 'date_batch' ) );
     return $twig;
   }
-
 }
+
 
 new StarterSite();
 

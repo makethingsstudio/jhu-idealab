@@ -15,10 +15,12 @@ $context['post'] = $post;
    §§ Challenge Content
    ========================================================================== */
    $past_challenges_arr = array(
-     'order'          => 'asc',
-     'orderby'        => 'date',
+     'order'          => 'DESC',
+     'orderby'        => 'meta_value_date',
      'post_type'      => 'challenge',
      'posts_per_page' => -1,
+     'meta_type' => 'DATE',
+     'meta_key'  => 'challenge_end_date',
      'meta_query' => array(
        array(
            'key' => 'challenge_status', // name of custom field
