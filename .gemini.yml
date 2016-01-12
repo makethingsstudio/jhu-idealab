@@ -1,0 +1,5 @@
+rootUrl: http://192.168.1.130:9000/
+browsers:
+  ChromeDriver:
+    desiredCapabilities:
+      browserName: chromedriver
