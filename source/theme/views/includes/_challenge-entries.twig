@@ -4,7 +4,7 @@
   {% endif %}
     <li class="ideas__item idea" id="idea-{{ idea.id }}">
       <h2 class="idea__heading idea__content">
-        <a href="{{ idea.url }}" title="Link">{{ idea.title }}</a>
+        <a class="idea__link" href="{{ idea.url }}" title="Link">{{ idea.title }}</a>
       </h2>
       <div class="actions idea__actions">
         <span class="idea__action"title="{{ idea.voteCount }} Votes">

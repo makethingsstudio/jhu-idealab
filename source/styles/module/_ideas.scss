@@ -69,10 +69,6 @@
     min-height: 6em;
   }
 
-  a {
-    color: palette(grey, friar);
-  }
-
   .challenge--past &,
   .challenge--list & {
     @include respond-to('medium and above') {
@@ -90,10 +86,21 @@
 }
 
 .idea__link {
+  &:link,
+  &:active,
+  &:visited {
+    color: palette(grey, friar);
+  }
+
+  &:hover,
+  &:focus {
+    color: palette(blue, endeavour);
+  }
+
   .challenge--has-image & {
-    a:link,
-    a:active,
-    a:visited {
+    &:link,
+    &:active,
+    &:visited {
       color: palette(white);
     }
 
