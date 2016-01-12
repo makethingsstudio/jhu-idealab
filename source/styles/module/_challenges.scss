@@ -51,6 +51,12 @@
     @include span(1 of 12);
   }
 
+  .challenge--has-image & {
+    padding: 3px;
+    border-radius: 100%;
+    background-color: palette(white);
+  }
+
   .challenge--list & {
     @include respond-to('medium and above') {
       @include span(1 of 7);
