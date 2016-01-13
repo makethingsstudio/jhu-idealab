@@ -1,0 +1,42 @@
+<article class="challenge challenge--list" id="{{ 'challenge-' ~ post.ID }}">
+  <div class="challenge__header media">
+      {% if post.thumbnail|length %}
+      <img src="{{ post.thumbnail.src | resize(100,100) }}" alt="" class="media__src challenge__src">
+      {% else %}
+          <img src="http://placecage.com/100/100" alt="" class="media__src challenge__src">
+      {% endif %}
+
+      <div class="media__body">
+        <h3 class="challenge__heading">
+          {{ post.title }}
+        </h3>
+        <div class="challenge__excerpt cms">
+          {{ post.get_preview( 50, false, '' ) }}
+        </div>
+      </div>
+  </div>
+  {% if post.projects | length %}
+  <div class="challenge__content">
+    <h4 class="ideas-list__heading">
+      {{ function( '_n', 'Winner', 'Winners', post.projects | length ) }}
+    </h4>
+    <ul class="ideas-list ideas-list-winner {{ post.projects|length > 1 ? 'ideas-list--multi-winner' }}">
+      {% for idea in post.projects %}
+      <li class="ideas__item idea--winner idea" id="{{ 'idea-' ~ idea.id }}">
+        <h5 class="idea__heading">
+          <a class="idea__link" href="{{ post.link ~ 'ideas/' ~ idea.slug }}" title="Link">{{ idea.title }}</a>
+        </h5>
+
+        <div class="idea__content">
+          {{ idea.get_preview(50, false, '')}}
+        </div>
+        <!-- /.idea__content -->
+      </li>
+      <!-- /.ideas__item -->
+      {% endfor %}
+    </ul>
+    <!-- /.ideas-list ideas-list-winner -->
+  </div>
+  <!-- /.challenge__content -->
+  {% endif %}
+</article>

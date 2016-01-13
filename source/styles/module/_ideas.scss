@@ -14,17 +14,49 @@
     margin-bottom: 0;
     vertical-align: top;
   }
+
+  .challenge--past & {
+
+    @include respond-to('medium and above') {
+      margin-bottom: 0;
+    }
+  }
+
+  .challenge--past & + & {
+
+    @include respond-to('medium and above') {
+      padding-top: $vs*.5;
+      margin-top: $vs*.5;
+      border-top: 1px solid palette(white);
+      border-radius: 0;
+    }
+  }
 }
 
 .idea {
   border: 2px solid palette(white, ebb);
   border-radius: 4px;
+
+  .challenge--past &,
+  .challenge--list & {
+    border: 0;
+    border-radius: 0
+  }
+
+  .challenge--list & + & {
+    margin-top: $vs*0.5;
+  }
 }
 
 .idea__heading,
 .idea__content {
   padding-right: $hs/2;
   padding-left: $hs/2;
+
+  .challenge--past & {
+    padding-right: 0;
+    padding-left: 0;
+  }
 }
 
 .idea__heading {
@@ -37,19 +69,85 @@
     min-height: 6em;
   }
 
-  a {
+  .challenge--past &,
+  .challenge--list & {
+    @include respond-to('medium and above') {
+      padding-top: 0;
+      padding-bottom: 0;
+      min-height: auto;
+      font-size: 16px;
+    }
+  }
+
+  .challenge--list & {
+    padding-right: 0;
+    padding-left: 0;
+  }
+}
+
+.idea__link {
+  &:link,
+  &:active,
+  &:visited {
     color: palette(grey, friar);
+  }
+
+  &:hover,
+  &:focus {
+    color: palette(blue, endeavour);
+  }
+
+  .challenge--has-image & {
+    &:link,
+    &:active,
+    &:visited {
+      color: palette(white);
+    }
+
+    &:hover,
+    &:focus {
+      color: palette(yellow, supernova);
+    }
+  }
+
+  .challenge--past & {
+    &:link,
+    &:active,
+    &:visited {
+      color: palette(blue, cornflower);
+    }
+
+    &:hover,
+    &:focus {
+      color: palette(yellow, supernova);
+    }
   }
 }
 
 .idea__content {
   padding-bottom: $vs/2;
+
+  &:last-child {
+    padding-bottom: 0;
+  }
+
+  .challenge--list & {
+    padding-right: 0;
+    padding-left: 0;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }
 
 .idea__actions {
   padding: ($vs/2) ($hs/2);
   line-height: 1;
   background-color: palette(white, ebb);
+
+  .challenge--past & {
+    padding: 0;
+    background-color: transparent;
+  }
 }
 
 .idea__action {
@@ -70,6 +168,10 @@
     color: darken(palette(grey, friar), 20%);
   }
 
+  .challenge--past & {
+    color: palette(white);
+  }
+
   + .idea__action {
     margin-left: $hs/2;
   }
@@ -79,7 +181,22 @@
     top: 0;
     left: 0;
   }
+
+
 }
+
+
+.ideas-list__heading {
+  margin: 0;
+  font-size: 21px;
+  font-weight: bold;
+  color: palette(yellow, supernova);
+
+  .challenge--list & {
+    font-size: 16px;
+  }
+}
+
 
 .ideas-list--full {
   .idea {

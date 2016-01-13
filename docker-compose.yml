@@ -3,7 +3,7 @@ web:
   hostname: idealab.jhu.edu
   domainname: idealab.jhu.dev
   volumes:
-    - /vagrant/makethings/jhu-idealab-site-dev/dist/www:/var/www/html
+    - /vagrant/jhu-idealab-site-dev/dist/www:/var/www/html
   volumes_from:
     - data
   links:

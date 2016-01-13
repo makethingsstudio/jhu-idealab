@@ -1,6 +1,5 @@
 source "https://rubygems.org"
 
-gem "hologram"
-gem "jekyll"
-gem "jekyll-import"
+gem 'capistrano'
+gem 'github_changelog_generator'
 gem "scss-lint"

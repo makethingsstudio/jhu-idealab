@@ -2,7 +2,13 @@
   width: 95%;
   max-width: 1280px;
   margin: 0 auto;
-  overflow: auto;
+  overflow: hidden;
+}
+
+.container--offset {
+  @include respond-to('medium and above') {
+    @include pad(2);
+  }
 }
 
 

@@ -1,0 +1,54 @@
+{% extends 'base.twig' %}
+
+
+
+{% block content %}
+  <article class="entry-single" id="{{ 'entry-' ~ post.id }}">
+    <div class="container">
+      <header class="entry-single__header">
+        <h1 class="entry-single__heading">{{ post.title }}</h1>
+
+        <nav class="entry-single__page-nav">
+          <ul class="page-nav nav">
+            {% for item in primary.get_items if (item.current_item_ancestor or item.current) %}
+              <li class="page-nav__item {{ item.classes | join( ' ' ) }}">
+                <a href="{{ item.link }}" title="{{ item.title }}">
+                  {{ item.title }}
+                </a>
+              </li>
+              {% for child in item.get_children %}
+                  <li class="page-nav__item {{ child.classes | join( ' ' ) }}">
+                    <a href="{{ child.link }}" title="{{ child.title }}">
+                      {{ child.title}}
+                    </a>
+                  </li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+          <!-- /.page-nav -->
+        </nav>
+        <!-- /.page-nav -->
+      </header>
+
+      {% block challenge_content %}
+      {% if current_challenges|length %}
+      <div class="cc-list">
+        {% for challenge in current_challenges %}
+          {% include "includes/_challenge-item.twig" with { 'post' : challenge } only %}
+        {% endfor %}
+      </div>
+      <!-- /.cc-list -->
+      {% else %}
+        <div class="main-content cms">
+          {{ challenge_statement|wpautop }}
+          <p><a class="button button--cornflower" href="{{ function('get_permalink', 125 ) }}">
+                      View Past Challenges
+                    </a></p>
+        </div>
+        <!-- /.cms -->
+      {% endif %}
+      {% endblock %}
+    </div>
+    <!-- /.container -->
+  </article>
+{% endblock %}

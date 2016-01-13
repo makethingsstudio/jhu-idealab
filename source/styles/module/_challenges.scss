@@ -10,9 +10,12 @@
 }
 
 .current-challenges--full {
-  @include respond-to('medium and above') {
+
+  @include respond-to("medium and above") {
+
     @include pad(2);
   }
+
   .challenges__item {
     margin-bottom: $vs*3;
   }
@@ -31,17 +34,41 @@
 
 .challenge__heading {
   margin: 0;
+  .entry-single__hero & {
+    color: palette(white);
+  }
+  .challenge--list & {
+    font-size: 21px;
+    line-height: 24px;
+    color: palette( blue, cloudburst );
+  }
 }
 
 .challenge__src {
-  @include respond-to('medium and above') {
+
+  @include respond-to("medium and above") {
+
     @include span(1 of 12);
+  }
+
+  .challenge--has-image & {
+    padding: 3px;
+    border-radius: 100%;
+    background-color: palette(white);
+  }
+
+  .challenge--list & {
+    @include respond-to('medium and above') {
+      @include span(1 of 7);
+    }
   }
 }
 
 .challenge--has-image .challenge__content,
-.challenge--has-image .challenge__footer{
-  @include respond-to('medium and above') {
+.challenge--has-image .challenge__footer {
+
+  @include respond-to("medium and above") {
+
     @include pre(1 of 12);
   }
 }
@@ -49,15 +76,219 @@
 .challenge__excerpt {
   margin: 0 0 $vs/2;
 
-  @include respond-to('medium and above') {
+  @include respond-to("medium and above") {
+
     @include span(6 of 11);
-    margin-bottom: 0
+    margin-bottom: 0;
+  }
+
+  .challenge--past & {
+    float: none;
+    width: auto;
+    margin-right: 0;
+  }
+
+  .challenge--list & {
+    float: none;
+    width: auto;
   }
 }
 
 .challenge__actions {
-  @include respond-to('medium and above') {
+
+  @include respond-to("medium and above") {
+
     @include span(5 of 11 last);
     text-align: right;
+  }
+}
+
+.cc-list {
+  clear: both;
+
+  .challenge--has-image:first-child {
+    @include respond-to('medium and above') {
+      padding-top: 9em;
+    }
+  }
+}
+
+
+.cc-list__heading {
+  margin: 0 0 54px;
+  font-family: $font-quadon;
+  font-weight: 200;
+  font-size: 32px;
+  color: palette(blue, midnight);
+
+  @include respond-to('medium and above') {
+
+    @include span(6 of 14);
+  }
+}
+
+
+.cc-list__date {
+  font-size: 36px;
+  text-align: center;
+  color: palette( blue, cloudburst );
+}
+
+
+.challenge__link {
+
+  .challenge--has-image & {
+    &:link,
+    &:active,
+    &:visited {
+      color: palette(white);
+    }
+
+    &:hover,
+    &:focus {
+      color: palette(yellow, supernova);
+    }
+  }
+}
+
+
+.cc-list__button {
+  margin-top: $vs*2;
+
+  @include respond-to('medium and above') {
+
+    float: right;
+    margin-top: 0;
+  }
+}
+
+
+.challenge {
+  vertical-align: top;
+}
+
+.challenge--has-image {
+  position: relative;
+  padding-top: $vs;
+  padding-bottom: $vs;
+  color: palette(white);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include respond-to("medium and above") {
+    padding-top: $vs*4;
+    padding-bottom: $vs*4;
+  }
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(palette(blue, sherpa), .9);
+  }
+
+  .read-more {
+    color: palette(yellow, supernova);
+  }
+
+
+
+  .idea {
+    border-color: palette(white);
+  }
+
+  .idea__actions {
+    background-color: palette(white);
+  }
+
+  .idea__action,
+  .idea__actions {
+    color: palette(blue, midnight);
+  }
+}
+
+.challenge--list {
+  .challenge__content {
+    @include respond-to('medium and above') {
+      @include pre(1 of 7);
+    }
+  }
+}
+
+.challenge--list + .challenge--list {
+  margin-top: $vs*2;
+
+  @include respond-to('medium and above') {
+    margin-top: $vs*4;
+  }
+}
+
+
+.cc-list--past {
+
+  .flexbox & {
+    @include respond-to('medium and above') {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+
+  .challenge--past:first-child {
+    padding-top: $vs*2;
+
+    @include respond-to('medium and above') {
+      padding-top: $vs*4;
+    }
+  }
+}
+
+
+.challenge--past {
+
+
+  .flexbox & {
+    @include respond-to('medium and above') {
+      display: flex;
+    }
+  }
+
+  &:nth-child(1),
+  &:nth-child(2),
+  &:nth-child(6n),
+  &:nth-child(7n) {
+    @include respond-to('medium and above') {
+
+      width: 50%;
+    }
+  }
+
+
+  &:nth-child(3),
+  &:nth-child(4),
+  &:nth-child(5) {
+    @include respond-to('medium and above') {
+      width: 33.333%;
+    }
+  }
+}
+
+
+.challenge__canister {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+
+  .challenge--past & {
+    padding: $vs $hs;
+
+    @include respond-to('medium and above') {
+      padding: $vs*2 $hs*2;
+    }
   }
 }

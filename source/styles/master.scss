@@ -10,18 +10,24 @@
 @import "_base.scss";
 
 
-@import "module/_brand.scss";
 @import "module/_buttons.scss";
+@import "module/_media.scss";
+@import "module/_nav.scss";
+
+
+@import "module/_brand.scss";
+@import "module/_cc-section.scss";
+@import "module/_challenge-nav.scss";
 @import "module/_challenges.scss";
 @import "module/_cta.scss";
 @import "module/_entry.scss";
 @import "module/_hero.scss";
 @import "module/_icons.scss";
 @import "module/_ideas.scss";
-@import "module/_media.scss";
 @import "module/_masthead.scss";
-@import "module/_nav.scss";
+@import "module/_page-menu.scss";
 @import "module/_primary-menu.scss";
+@import "module/_project-details.scss";
 @import "module/_steps.scss";
 
 

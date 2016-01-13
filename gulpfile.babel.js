@@ -17,6 +17,19 @@
 'use strict';
 
 
+
+import del from 'del';
+import bower from 'main-bower-files';
+import browserSync from 'browser-sync';
+import gulp from 'gulp';
+import gulpLoadPlugins from 'gulp-load-plugins';
+import path from 'path';
+import pagespeed from 'psi'
+import pxtorem from 'postcss-pxtorem';
+import runSequence from 'run-sequence';
+import {stream as wiredep} from 'wiredep';
+
+
 const APPURL = 'idealab.jhu.dev';
 const DEST = 'dist';
 const THEMENAME = 'jhu-idealab';
@@ -37,7 +50,8 @@ const AUTOPREFIXER_BROWSERS = [
 
 const processors = [
   pxtorem({
-      replace: false
+      replace: false,
+      rootValue: 14
   })
 ];
 
@@ -93,21 +107,6 @@ const MINIFY_OPTIONS = {comments:true,spare:true};
 const PLUMBER_OPTIONS = {
   errorHandler: true
 };
-
-
-
-
-
-import del from 'del';
-import bower from 'main-bower-files';
-import browserSync from 'browser-sync';
-import gulp from 'gulp';
-import gulpLoadPlugins from 'gulp-load-plugins';
-import path from 'path';
-import pagespeed from 'psi'
-import pxtorem from 'postcss-pxtorem';
-import runSequence from 'run-sequence';
-import {stream as wiredep} from 'wiredep';
 
 
 const $ = gulpLoadPlugins();
@@ -196,6 +195,50 @@ gulp.task('fonts', () => {
  }).concat('source/fonts/**/*'))
    .pipe(gulp.dest(THEMEPATH + '/fonts'))
 });
+
+
+
+
+
+/* ==========================================================================
+   § HTML
+   ========================================================================== */
+gulp.task('html', () => {
+//  var assets = $.useref({
+//    searchPath: '{.tmp,source,dist,./}',
+//  });
+//  var jsFilter = $.filter('**/*.js');
+//  var cssFilter = $.filter('**/*.css');
+//  var htmlFilter = $.filter('**/*.{php,twig}');
+
+  return gulp.src('source/theme/views/base.twig')
+    .pipe($.useref({
+      searchPath: '{.tmp,source,dist,./}',
+    }))
+    // Remove any unused CSS
+    // Note: If not using the Style Guide, you can delete it from
+    // the next line to only include styles your project uses.
+    // .pipe($.if('*.css', $.uncss({
+    //   html: [
+    //     'src/index.html'
+    //   ],
+    //   // CSS Selectors for UnCSS to ignore
+    //   ignore: [
+    //     /.navdrawer-container.open/,
+    //     /.app-bar.open/
+    //   ]
+    // })))
+
+    // Concatenate and minify styles
+    // In case you are still using useref build blocks
+    // .pipe($.if('*.css', $.csso()))
+    // Minify any HTML
+    // .pipe($.if('*.html', $.inlineSource(INLINE_OPTIONS)))
+    // .pipe($.if('*.html', $.minifyHtml()))
+    // Output files
+    .pipe(gulp.dest(THEMEPATH + '/views'))
+    .pipe($.size({title: 'html'}));
+})
 
 
 
@@ -299,4 +342,32 @@ gulp.task('styles', () => {
     .pipe($.sourcemaps.write())
     .pipe(gulp.dest(THEMEPATH + '/styles'))
     .pipe(reload({stream: true}));
+});
+
+
+
+
+
+
+/* ==========================================================================
+   § Wiredep
+   ========================================================================== */
+gulp.task('wiredep', () => {
+  gulp.src('source/styles/main.scss')
+    .pipe(wiredep({
+      ignorePath: /^(\.\.\/)+/,
+      overrides: {
+        'sanitize-css': {
+          'main': 'sanitize.scss'
+        },
+      }
+    }))
+    .pipe(gulp.dest('source/styles'));
+
+  gulp.src('source/templates/views/__base.twig')
+    .pipe(wiredep({
+      exclude: [ /jquery/, 'bower_components/modernizr/modernizr.js' ],
+      ignorePath: /^(\.\.\/)*\.\./,
+    }))
+    .pipe(gulp.dest('source/templates/views'));
 });

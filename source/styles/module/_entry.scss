@@ -1,3 +1,151 @@
 .entry-single {
+}
 
+
+.entry-single__hero {
+  @include respond-to('medium and above') {
+    padding-top: $vs*4;
+    padding-bottom: $vs*4;
+  }
+
+  position: relative;
+  z-index: 1;
+  padding-top: $vs*2;
+  padding-bottom: $vs*2;
+
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(palette(blue, sherpa), .9);
+  }
+}
+
+
+.entry-single__header {
+  position: relative;
+  z-index: 2;
+  overflow: hidden;
+}
+
+
+.entry-single__heading {
+  @include respond-to('medium and above') {
+    @include span(10);
+  }
+  .entry-single__hero & {
+    @include respond-to('medium and above') {
+      float: none;
+      width: span(12);
+      margin: 0 auto;
+      font-family: $font-quadon;
+      font-size: 66px;
+      font-weight: 200;
+      line-height: $base-lh-ratio;
+      color: palette(white);
+    }
+
+    margin: 0;
+    font-family: $font-quadon;
+    font-size: 66px;
+    font-weight: 200;
+    line-height: $base-lh-ratio;
+    text-align: center;
+    color: palette(white);
+  }
+}
+
+
+.entry-single__page-nav {
+  @include respond-to('medium and above') {
+    @include span(5 last);
+
+    margin-bottom: 0;
+  }
+
+  margin: 0 auto $vs*2;
+}
+
+
+.entry-single__intro {
+  .entry-single__hero & {
+    font-size: 16px;
+    color: palette(white);
+    @include respond-to('medium and above') {
+      float: none;
+      width: span(8);
+      margin: 0 auto;
+      text-align: center;
+    }
+  }
+}
+
+
+.entry-single__challenge-details {
+  @include respond-to('medium and above') {
+    margin-top: $vs*2;
+  }
+
+  margin-top: $vs;
+  text-align: center;
+  .media__src {
+    display: none;
+    float: none;
+    margin-right: $hs*0.5;
+    vertical-align: top;
+  }
+  .media__body {
+    display: inline-block;
+    vertical-align: top;
+  }
+  .challenge__link {
+    &:link,
+    &:visited,
+    &:active {
+      color: palette(white);
+    }
+    &:hover,
+    &:focus {
+      color: palette(yellow, supernova);
+    }
+  }
+  .challenge__heading span {
+    display: block;
+    font-size: 14px;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .idea__actions {
+    color: palette(white);
+    background-color: transparent;
+  }
+}
+
+
+.entry-single__body {
+  @include respond-to('medium and above') {
+    margin-top: $vs*-3;
+  }
+
+  position: relative;
+  z-index: 2;
+}
+
+.entry-single__content {
+  @include respond-to('medium and above') {
+    @include pad(1);
+    @include squish(2);
+
+    padding-top: $vs*3;
+  }
+
+  overflow: hidden;
+  padding-top: $vs*2;
+  background-color: palette(white);
 }

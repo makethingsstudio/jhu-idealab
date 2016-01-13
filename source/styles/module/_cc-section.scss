@@ -1,0 +1,66 @@
+.cc-section {
+  overflow: hidden;
+}
+
+.cc-section--has-current-challenges {
+  background-color: rgba(palette(blue, sherpa), .9);
+}
+
+.cc-section__header {
+  position: relative;
+  z-index: 2;
+  padding-bottom: 24px;
+  border-top: 9px solid palette(yellow, supernova);
+
+  @include respond-to("medium and above") {
+    // padding-bottom: 54px;
+  }
+}
+
+.cc-section__heading {
+  padding: 20px $hs;
+  margin: 0;
+  font-family: $font-quadon;
+  font-weight: 200;
+  font-size: 32px;
+  text-transform: uppercase;
+  background: palette(yellow, supernova);
+
+  @include respond-to("medium and above") {
+    display: inline-block;
+  }
+}
+
+.cc-section__menu {
+  margin-top: 24px;
+
+  @include respond-to("medium and above") {
+
+    @include span(last 6 of 14);
+    margin-top: 18px;
+    text-align: right;
+  }
+}
+
+.cc-section__body {
+  position: relative;
+  z-index: 1;
+}
+
+.cc-section__body--has-challenges {
+
+  @include respond-to( 'medium and above' ) {
+    margin-top: -8.5em;
+  }
+}
+
+.cc-section__content {
+  padding-bottom: 54px;
+  font-size: 21px;
+  line-height: 1.42;
+
+  @include respond-to('medium and above') {
+
+    @include post(2);
+  }
+}

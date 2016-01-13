@@ -3,7 +3,7 @@
   <h2 class="current-challenges__heading">Current Challenges</h2>
   <ul class="current-challenges__list challenges">
   {% endif %}
-  <li class="challenges__item challenge challenge--has-image{% if challenge.image|length %}challenge--has-image{% endif %}" id="challenge-{{ challenge.id }}">
+  <li class="challenges__item challenge challenge--has-image{% if challenge.challenge_image|length %}challenge--has-image{% endif %}" id="challenge-{{ challenge.id }}">
     <div class="challenge__header media">
         {% if challenge.image|length %}
         <img src="{{TimberImage(challenge.image).src|resize(100,100)}}" alt="" class="media__src challenge__src">

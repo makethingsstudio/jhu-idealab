@@ -1,0 +1,13 @@
+.project-details {
+
+}
+
+.project-details__heading,
+.project-details__content {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.project-details__content + .project-details__heading {
+  margin-top: $vs;
+}
