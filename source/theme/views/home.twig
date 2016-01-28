@@ -57,7 +57,7 @@
 
 
           <div class="cc-list cc-list--past">
-            {% for challenge in past_challenges %}
+            {% for challenge in past_challenges if challenge.projects | length %}
               {% include "includes/_past-challenge-item-full.twig" with { 'post' : challenge } only %}
             {% endfor %}
           </div>
