@@ -1,275 +1,263 @@
 .ideas-list {
-  overflow: hidden;
-  padding-left: 0;
-  margin-left: 0;
-  list-style: none;
+    overflow: hidden;
+    padding-left: 0;
+    margin-left: 0;
+    list-style: none;
+
+    .flexbox & {
+        @include respond-to('medium and above') {
+            display: flex;
+
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    }
 }
 
 .ideas__item {
-  display: block;
-  margin-bottom: $vs;
-
-  @include respond-to('medium and above') {
-    display: inline-block;
-    margin-bottom: 0;
-    vertical-align: top;
-  }
-
-  .challenge--past & {
+    display: block;
+    margin-bottom: $vs;
 
     @include respond-to('medium and above') {
-      margin-bottom: 0;
+        display: inline-block;
+        margin-bottom: 0;
+        vertical-align: top;
     }
-  }
 
-  .challenge--past & + & {
+    .challenge--past & {
+        border-radius: 0;
 
-    @include respond-to('medium and above') {
-      padding-top: $vs*.5;
-      margin-top: $vs*.5;
-      border-top: 1px solid palette(white);
-      border-radius: 0;
+        @include respond-to('medium and above') {
+            width: 48%;
+            margin-bottom: $vs;
+        }
     }
-  }
+    .challenge--past & + & {
+        @include respond-to('medium and above') {
+
+        }
+    }
 }
 
 .idea {
-  border: 2px solid palette(white, ebb);
-  border-radius: 4px;
+    border: 2px solid palette(white, ebb);
+    border-radius: 4px;
 
-  .challenge--past &,
-  .challenge--list & {
-    border: 0;
-    border-radius: 0
-  }
-
-  .challenge--list & + & {
-    margin-top: $vs*0.5;
-  }
+    .challenge--past &,
+    .challenge--list & {
+        border: 0;
+        border-radius: 0
+    }
+    .challenge--list & + & {
+        margin-top: $vs*0.5;
+    }
 }
 
 .idea__heading,
 .idea__content {
-  padding-right: $hs/2;
-  padding-left: $hs/2;
+    padding-right: $hs/2;
+    padding-left: $hs/2;
 
-  .challenge--past & {
-    padding-right: 0;
-    padding-left: 0;
-  }
+    .challenge--past & {
+        padding-right: 0;
+        padding-left: 0;
+        font-size: 12px;
+        line-height: 15px;
+    }
 }
 
 .idea__heading {
-  padding-top: $vs/2;
-  margin: 0;
-  font-size: 14px;
-  line-height: $vs;
+    padding-top: $vs/2;
+    margin: 0;
+    font-size: 14px;
+    line-height: $vs;
 
-  @include respond-to('medium and above') {
-    min-height: 6em;
-  }
-
-  .challenge--past &,
-  .challenge--list & {
     @include respond-to('medium and above') {
-      padding-top: 0;
-      padding-bottom: 0;
-      min-height: auto;
-      font-size: 16px;
+        min-height: 6em;
     }
-  }
 
-  .challenge--list & {
-    padding-right: 0;
-    padding-left: 0;
-  }
+    .challenge--past &,
+    .challenge--list & {
+        @include respond-to('medium and above') {
+            min-height: auto;
+            padding-top: 0;
+            padding-bottom: 0;
+            font-size: 16px;
+        }
+    }
+    .challenge--list & {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }
 
 .idea__link {
-  &:link,
-  &:active,
-  &:visited {
-    color: palette(grey, friar);
-  }
-
-  &:hover,
-  &:focus {
-    color: palette(blue, endeavour);
-  }
-
-  .challenge--has-image & {
     &:link,
     &:active,
     &:visited {
-      color: palette(white);
+        color: palette(grey, friar);
     }
-
     &:hover,
     &:focus {
-      color: palette(yellow, supernova);
+        color: palette(blue, endeavour);
     }
-  }
-
-  .challenge--past & {
-    &:link,
-    &:active,
-    &:visited {
-      color: palette(blue, cornflower);
+    .challenge--has-image & {
+        &:link,
+        &:active,
+        &:visited {
+            color: palette(white);
+        }
+        &:hover,
+        &:focus {
+            color: palette(yellow, supernova);
+        }
     }
-
-    &:hover,
-    &:focus {
-      color: palette(yellow, supernova);
+    .challenge--past & {
+        &:link,
+        &:active,
+        &:visited {
+            color: palette(blue, cornflower);
+        }
+        &:hover,
+        &:focus {
+            color: palette(yellow, supernova);
+        }
     }
-  }
 }
 
 .idea__content {
-  padding-bottom: $vs/2;
+    padding-bottom: $vs/2;
 
-  &:last-child {
-    padding-bottom: 0;
-  }
-
-  .challenge--list & {
-    padding-right: 0;
-    padding-left: 0;
-    font-size: 12px;
-    line-height: 15px;
-  }
+    &:last-child {
+        padding-bottom: 0;
+    }
+    .challenge--list & {
+        padding-right: 0;
+        padding-left: 0;
+        font-size: 12px;
+        line-height: 15px;
+    }
 }
 
 .idea__actions {
-  padding: ($vs/2) ($hs/2);
-  line-height: 1;
-  background-color: palette(white, ebb);
+    padding: ($vs/2) ($hs/2);
+    line-height: 1;
+    background-color: palette(white, ebb);
 
-  .challenge--past & {
-    padding: 0;
-    background-color: transparent;
-  }
+    .challenge--past & {
+        padding: 0;
+        background-color: transparent;
+    }
 }
 
 .idea__action {
-  display: inline-block;
-  position: relative;
-  padding-left: 20px;
-  line-height: 1;
-  vertical-align: baseline;
+    display: inline-block;
+    position: relative;
+    padding-left: 20px;
+    line-height: 1;
+    vertical-align: baseline;
 
-  &:link,
-  &:active,
-  &:visited {
-    color: palette(grey, friar);
-  }
-
-  &:hover,
-  &:focus {
-    color: darken(palette(grey, friar), 20%);
-  }
-
-  .challenge--past & {
-    color: palette(white);
-  }
-
-  + .idea__action {
-    margin-left: $hs/2;
-  }
-
-  .icon {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-
-
+    &:link,
+    &:active,
+    &:visited {
+        color: palette(grey, friar);
+    }
+    &:hover,
+    &:focus {
+        color: darken(palette(grey, friar), 20%);
+    }
+    .challenge--past & {
+        color: palette(white);
+    }
+    + .idea__action {
+        margin-left: $hs/2;
+    }
+    .icon {
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
 }
-
 
 .ideas-list__heading {
-  margin: 0;
-  font-size: 21px;
-  font-weight: bold;
-  color: palette(yellow, supernova);
+    margin: 0;
+    font-size: 21px;
+    font-weight: bold;
+    color: palette(yellow, supernova);
 
-  .challenge--list & {
-    font-size: 16px;
-  }
+    .challenge--list & {
+        font-size: 16px;
+    }
 }
-
 
 .ideas-list--full {
-  .idea {
-    @include respond-to('medium and above') {
-      display: inline-block;
-      width: span(3 of 12);
-      min-height: inherit;
-    }
+    .idea {
+        @include respond-to('medium and above') {
+            display: inline-block;
+            width: span(3 of 12);
+            min-height: inherit;
+        }
 
-    + .idea {
-      @include respond-to('medium and above') {
-        margin-left: gutter();
-      }
+        + .idea {
+            @include respond-to('medium and above') {
+                margin-left: gutter();
+            }
+        }
     }
-  }
 }
-
 
 .current-challenges--sidebar {
-  color: palette(grey, friar);
+    color: palette(grey, friar);
 
-  .challenges__item {
-    + .challenges__item {
-      margin-top: $vs*2;
+    .challenges__item {
+        + .challenges__item {
+            margin-top: $vs*2;
+        }
     }
-  }
-
-  .challenge__src {
-    display: none;
-  }
-
-  .challenge__excerpt {
-    width: 100%;
-  }
-
-  .challenge__actions {
-    display: none;
-  }
-
-  .ideas__item {
-    display: table;
-    width: 100%;
-    overflow: hidden;
-    vertical-align: middle;
-    padding: $vs/2 $hs/2;
-    border: 0;
-    border-radius: 0;
-
-    + .ideas__item {
-      margin-top: $vs/2;
-      margin-left: 0;
-      border-top: 1px solid palette(grey, friar);
+    .challenge__src {
+        display: none;
     }
-  }
-
-  .idea__content {
-    margin-bottom: $vs/2;
-      padding: 0;
-    @include respond-to('large and above') {
-      display: table-cell;
-      width: 63%;
-      margin-bottom: 0;
-      vertical-align: middle;
+    .challenge__excerpt {
+        width: 100%;
     }
-  }
-
-  .idea__actions {
-      padding: 0;
-      background: none;
-    @include respond-to('large and above') {
-      display: table-cell;
-      width: 35%;
-      vertical-align: middle;
+    .challenge__actions {
+        display: none;
     }
-  }
+    .ideas__item {
+        display: table;
+        overflow: hidden;
+        width: 100%;
+        padding: $vs/2 $hs/2;
+        vertical-align: middle;
+        border: 0;
+        border-radius: 0;
+
+        + .ideas__item {
+            margin-top: $vs/2;
+            margin-left: 0;
+            border-top: 1px solid palette(grey, friar);
+        }
+    }
+    .idea__content {
+        padding: 0;
+        margin-bottom: $vs/2;
+
+        @include respond-to('large and above') {
+            display: table-cell;
+            width: 63%;
+            margin-bottom: 0;
+            vertical-align: middle;
+        }
+    }
+    .idea__actions {
+        padding: 0;
+        background: none;
+
+        @include respond-to('large and above') {
+            display: table-cell;
+            width: 35%;
+            vertical-align: middle;
+        }
+    }
 }
+

@@ -25,14 +25,14 @@
       }
 
       if ($date instanceof \DateTime) {
-        $key = '@' . \DateTime::createFromFormat($format, $date->format($format))->format('U');
+        $key = \DateTime::createFromFormat($format, $date->format($format))->format('Y');
+        var_dump( $key );
         $result[$key][] = $item;
       } else {
         $date = date_create_from_format( $format, $date );
-        $key = '@' . $date->format( 'U' );
+        $key = $date->format( 'Y' );
         $result[$key][] = $item;
       }
-
     }
 
     return $result;

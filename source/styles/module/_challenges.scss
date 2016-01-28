@@ -253,6 +253,13 @@
   }
 }
 
+.challenge--full {
+    .flexbox & {
+        display: block;
+        width: 100%;
+    }
+}
+
 
 .challenge__canister {
   position: relative;

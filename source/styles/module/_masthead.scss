@@ -10,7 +10,6 @@
   .brand {
     @include brand-blue;
   }
-
   .primary-nav {
     @include primary-blue;
   }
@@ -19,6 +18,7 @@
 
 .masthead__brand {
   margin: 0 auto $vs*2;
+
   @include respond-to('medium and above') {
     float: left;
     margin-bottom: 0;
@@ -28,8 +28,10 @@
 
 .masthead__primary {
   margin: 0 auto $vs*2;
+
   @include respond-to('medium and above') {
-    @include span(6 last);
+    @include span(10 last);
+
     margin-bottom: 0;
   }
 }
@@ -37,8 +39,8 @@
 
 .masthead--has-full-bg {
   position: absolute;
+  z-index: 2;
   top: 0;
   left: 0;
-  z-index: 2;
   width: 100%;
 }

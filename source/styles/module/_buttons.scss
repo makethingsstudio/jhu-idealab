@@ -4,8 +4,8 @@
 @mixin _button {
   display: inline-block;
   padding: $vs/2 ($hs/2);
-  line-height: 1;
   font-weight: 700;
+  line-height: 1;
   border: 2px solid transparent;
   border-radius: 4px;
 }
@@ -14,8 +14,8 @@
 .button {
   display: inline-block;
   padding: $vs/2 ($hs/2);
-  line-height: 1;
   font-weight: 700;
+  line-height: 1;
   border: 2px solid transparent;
   border-radius: 4px;
 }
@@ -30,7 +30,6 @@
     color: palette(white);
     background-color: palette(blue, endeavour);
   }
-
   &.button--outline {
     color: palette(white);
     border: 2px solid palette(white);
@@ -66,20 +65,17 @@
 
 
 .button--cinnabar {
-
   &:link,
   &:active,
   &:visited {
     color: palette(white, ebb);
     background-color: palette(red, cinnabar);
   }
-
   &:hover,
   &:active {
     color: palette(red, cinnabar);
     background-color: palette(white, ebb);
   }
-
   &.button--outline {
     color: palette(red, cinnabar);
     border: 2px solid palette(red, cinnabar);
@@ -92,7 +88,6 @@
       background-color: palette(red, cinnabar);
     }
   }
-
   &.button--rev {
     color: palette(red, cinnabar);
     background-color: palette(white, ebb);
@@ -115,7 +110,6 @@
     color: palette(blue, cornflower);
     background-color: palette(white, ebb);
   }
-
   &.button--outline {
     &:link,
     &:active,
@@ -124,7 +118,6 @@
       border: 2px solid palette(blue, cornflower);
       background-color: transparent;
     }
-
     &:hover,
     &:focus {
       color: palette(white);
@@ -135,21 +128,17 @@
 
 
 .button--supernova {
-
   &:link,
   &:active,
   &:visited {
     color: palette(black, base);
     background-color: palette(yellow, supernova);
   }
-
   &:hover,
   &:focus {
     color: palette(white);
     background-color: palette(blue, cornflower);
   }
-
-
   &.button--outline {
     color: palette(yellow, supernova);
     border-color: palette(yellow, supernova);
@@ -171,41 +160,44 @@
 
   .button {
     display: block;
+    width: 100%;
     font-size: $base-font-size;
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0;
 
     @include respond-to('medium and above') {
       display: inline-block;
+      width: inherit;
+      border-top-left-radius: 4px;
       border-top-right-radius: 0;
       border-bottom-right-radius: 0;
-      border-top-left-radius: 4px;
       border-bottom-left-radius: 4px;
     }
 
     + .button {
-      border-radius: 0;
+        border-radius: 4px;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
 
       @include respond-to('medium and above') {
-        border-radius: 4px;
         border-top-left-radius: 0;
         border-bottom-left-radius: 0;
       }
     }
   }
-
   .button:last-child {
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 4px;
     border-top-left-radius: 0;
-    border-bottom-left-radius: 4px;
+    border-top-right-radius: 0;
+
     @include respond-to('medium and above') {
       border-radius: 0;
+      border-top-left-radius: 0;
       border-top-right-radius: 4px;
       border-bottom-right-radius: 4px;
+      border-bottom-right-radius: 4px;
+      border-bottom-left-radius: 0;
     }
   }
-
   .button--outline + .button--outline {
     @include respond-to('medium and above') {
       border-left: 0;

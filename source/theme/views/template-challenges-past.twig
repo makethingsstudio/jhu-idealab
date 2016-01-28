@@ -2,21 +2,29 @@
 
 
 {% block challenge_content %}
-  <div class="cc-list cc-list--past">
-    {% for year_month, batched_entries in past_challenges | date_batch('challenge_end_date', 'Ymd') %}
+{% for key, entries in past_challenges | date_batch('challenge_end_date', 'Ymd') %}
+    {% for challenge in entries %}
+        {% if challenge.projects | length %}
+            {% if loop.first %}
+            <div class="cc-list__group">
+                <h2 class="cc-list__date">
+                    {{ key }}
+                </h2>
+                <!-- /.cc-list__date -->
+                <div class="cc-list">
+            {% endif %}
 
+            {% include "includes/_past-challenge-item-full.twig" with { 'post' : challenge } only %}
 
-      <div class="cc-list__group">
-        <h2 class="cc-list__date">{{ year_month | date( 'Y' ) }}</h2>
-
-        {% for challenge in batched_entries if challenge.projects | length %}
-          {% include "includes/_past-challenge-item.twig" with { 'post' : challenge } only %}
-        {% endfor %}
-      </div>
-      <!-- /.cc-list__group -->
+            {% if loop.last %}
+                </div>
+                <!-- /.cc-list -->
+            </div>
+            <!-- /.cc-list__group -->
+            {% endif %}
+        {% endif %}
 
 
     {% endfor %}
-  </div>
-  <!-- /.cc-list -->
+{% endfor %}
 {% endblock %}

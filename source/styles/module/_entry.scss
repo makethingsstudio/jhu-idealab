@@ -36,7 +36,7 @@
 
 .entry-single__heading {
   @include respond-to('medium and above') {
-    @include span(10);
+    @include span(8);
   }
 
   .entry-single__hero & {
@@ -66,7 +66,7 @@
   margin: 0 auto $vs*2;
 
   @include respond-to('medium and above') {
-    @include span(5 last);
+    @include span(8 last);
 
     margin-bottom: 0;
   }
