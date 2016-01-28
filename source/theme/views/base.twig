@@ -32,7 +32,7 @@
     {% block head %}{% endblock %}
   </head>
 
-  <body class="{{body_class}}" data-template="base.twig">
+  <body class="{{ body_class }}" data-template="base.twig">
     <div class="page">
       <div class="page-row page-row--expanded">
         {% include 'includes/_site-header.twig' with { 'masthead_class': masthead_class } %}

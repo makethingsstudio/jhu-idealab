@@ -97,12 +97,6 @@
 
 .cc-list {
   clear: both;
-
-  .challenge--has-image:first-child {
-    @include respond-to('medium and above') {
-      padding-top: 9em;
-    }
-  }
 }
 
 
@@ -192,6 +186,15 @@
   .idea__action,
   .idea__actions {
     color: palette(blue, midnight);
+  }
+  &:first-child {
+    @include respond-to('medium and above') {
+        padding-top: 9em;
+    }
+  }
+  .l-interior--challenges & {
+    padding-top: 36px;
+    padding-bottom: 36px;
   }
 }
 
