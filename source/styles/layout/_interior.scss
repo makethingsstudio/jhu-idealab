@@ -1,5 +1,6 @@
 .l-interior {
   background-color: palette(grey, pampas);
+
   .main {
     overflow: hidden;
     padding-top: $vs*3;
@@ -48,6 +49,9 @@
     padding-bottom: 0;
   }
   .main-content {
+    font-size: 16px;
+    line-height: 24px;
+
     @include respond-to('medium and above') {
       @include span( first 7 of 10 );
     }
@@ -66,6 +70,7 @@
 .l-interior--past-challenges {
   .cc-list--past {
     margin-top: $vs*2;
+
     @include respond-to( 'medium and above' ) {
       display: block;
       overflow: hidden;

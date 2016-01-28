@@ -13,7 +13,6 @@
   border-top: 9px solid palette(yellow, supernova);
 
   @include respond-to("medium and above") {
-    // padding-bottom: 54px;
   }
 }
 
@@ -21,9 +20,9 @@
   padding: 20px $hs;
   margin: 0;
   font-family: $font-quadon;
-  font-weight: 200;
   font-size: 32px;
-  text-transform: uppercase;
+  font-weight: 800;
+  color: palette(blue, sherpa);
   background: palette(yellow, supernova);
 
   @include respond-to("medium and above") {
@@ -35,8 +34,8 @@
   margin-top: 24px;
 
   @include respond-to("medium and above") {
-
     @include span(last 6 of 14);
+
     margin-top: 18px;
     text-align: right;
   }
@@ -48,7 +47,6 @@
 }
 
 .cc-section__body--has-challenges {
-
   @include respond-to( 'medium and above' ) {
     margin-top: -8.5em;
   }
@@ -56,11 +54,10 @@
 
 .cc-section__content {
   padding-bottom: 54px;
-  font-size: 21px;
-  line-height: 1.42;
+  font-size: 16px;
+  line-height: 18px;
 
   @include respond-to('medium and above') {
-
-    @include post(2);
+    @include post(4);
   }
 }

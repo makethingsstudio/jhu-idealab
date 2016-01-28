@@ -10,7 +10,7 @@
         <h2 class="cc-list__date">{{ year_month | date( 'Y' ) }}</h2>
 
         {% for challenge in batched_entries if challenge.projects | length %}
-          {% include "includes/_past-challenge-winner-item.twig" with { 'post' : challenge } only %}
+          {% include "includes/_past-challenge-item.twig" with { 'post' : challenge } only %}
         {% endfor %}
       </div>
       <!-- /.cc-list__group -->
