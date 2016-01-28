@@ -81,6 +81,9 @@
     width: auto;
     margin-right: 0;
   }
+  .challenge--past.challenge--full & {
+    max-width: 40em
+  }
   .challenge--list & {
     float: none;
     width: auto;
