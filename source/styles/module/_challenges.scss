@@ -105,7 +105,7 @@
   font-family: $font-quadon;
   font-size: 32px;
   font-weight: 800;
-  color: palette(blue, midnight);
+  color: palette(blue, sherpa);
 
   @include respond-to('medium and above') {
     @include span(6 of 14);
@@ -116,7 +116,7 @@
 .cc-list__date {
   font-size: 36px;
   text-align: center;
-  color: palette( blue, cloudburst );
+  color: palette(blue, sherpa);
 }
 
 
