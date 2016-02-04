@@ -86,7 +86,7 @@
   .challenge--past &,
   .challenge--list & {
     @include respond-to('medium and above') {
-      min-height: auto;
+      min-height: inherit;
       padding-top: 0;
       padding-bottom: 0;
       font-size: 16px;
