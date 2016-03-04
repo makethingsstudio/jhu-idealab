@@ -37,7 +37,8 @@
   }
   .challenge--past.challenge--full & {
     @include respond-to('medium and above') {
-        width: 48%;
+        display: block;
+        width: 100%;
         margin-bottom: $vs;
     }
   }
