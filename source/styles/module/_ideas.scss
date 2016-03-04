@@ -4,11 +4,19 @@
   margin-left: 0;
   list-style: none;
 
-    .flexbox .challenge--full & {
-        display: flex;
+  .challenge--full & {
+    @include respond-to('medium and above') {
+      float: left;
+      width: 48%;
+    }
+  }
+}
 
-        flex-wrap: wrap;
-        justify-content: space-between;
+.ideas-list + .ideas-list {
+    .challenge--full & {
+        @include respond-to('medium and above') {
+            margin-left: 4%;
+        }
     }
 }
 
