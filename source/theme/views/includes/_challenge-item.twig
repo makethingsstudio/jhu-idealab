@@ -13,16 +13,27 @@
               <div class="challenge__excerpt cms">
                 {{ post.get_preview( 50, false, '' ) }}
               </div>
-              <div class="button-group challenge__actions">
+              {% if post.show_voting %}
+                <div class="button-group challenge__actions">
                   {% if post.thumbnail.src|length %}
-                    <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ challenge.id|url_encode }}" title="Submit an Idea" class="button button--white">Submit an Idea</a>
-                    <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" title="Vote Today" class="button button--white button--outline button-group__last">Vote for an idea</a>
+                    <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ post.challenge_id|url_encode }}" title="Submit an Idea" class="button button--white">Submit an Idea</a>
+                    <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ post.challenge_id }}" title="Vote Today" class="button button--white button--outline button-group__last">Vote for an idea</a>
                   {% else %}
-                    <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ challenge.id|url_encode }}" title="Submit an Idea" class="button cta">Submit an Idea</a>
-                    <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" title="Vote Today" class="button button-group__last cta--outline">Vote for an idea</a>
+                    <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ post.id|url_encode }}" title="Submit an Idea" class="button cta">Submit an Idea</a>
+                    <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ post.id }}" title="Vote Today" class="button button-group__last cta--outline">Vote for an idea</a>
                   {% endif %}
-
                 </div>
+              {% else %}
+                <div class="challenge__actions">
+                {% if post.thumbnail.src|length %}
+                  <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ post.challenge_id|url_encode }}" title="Submit an Idea" class="button button--white">Submit an Idea</a>
+
+                {% else %}
+                  <a href="https://myidealab.jhu.edu/a/showCreateTopic.do?templateId=0&amp;discussionID={{ post.id|url_encode }}" title="Submit an Idea" class="button cta">Submit an Idea</a>
+                
+                {% endif %}
+                </div>
+              {% endif %}
             </div>
         </div>
 
@@ -31,7 +42,7 @@
         </div>
 
         <footer class="challenge__footer">
-          <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ challenge.id }}" class="button {{ post.challenge_image | length ? 'button--white' : 'button--grey' }} button--outline">See All Ideas</a>
+          <a href="https://myidealab.jhu.edu/a/ideas/recent/campaign-filter/byids/campaigns/{{ post.challenge_id }}" class="button {{ post.challenge_image | length ? 'button--white' : 'button--grey' }} button--outline">See All Ideas</a>
         </footer>
       </div>
       <!-- /.container--inner -->

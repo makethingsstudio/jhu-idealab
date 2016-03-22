@@ -37,9 +37,8 @@
 
     &:hover,
     &:focus {
-      color: palette(blue, endeavour);
-      border-color: palette(blue, endeavour);
-      background-color: palette(white);
+      color: palette(white);
+      background-color: palette(blue, endeavour);
     }
   }
 }

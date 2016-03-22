@@ -22,13 +22,13 @@
           <h3 class="ideas-list__heading">
             {{ function( '_n', 'Winner', 'Winners', post.projects | length ) }}
           </h3>
+          {% for batchResults in post.projects | batch( post.projects | length / 2 ) %}
           <ul class="ideas-list ideas-list--winner {{ post.projects|length > 1 ? 'ideas-list--multi-winner' }}">
-            {% for idea in post.projects %}
+            {% for idea in batchResults %}
             <li class="ideas__item idea--winner idea" id="{{ 'idea-' ~ idea.id }}">
               <h2 class="idea__heading idea__content">
                 <a class="idea__link" href="{{ post.link ~ 'ideas/' ~ idea.slug }}" title="Link">{{ idea.title }}</a>
               </h2>
-
               <div class="idea__content">
                 {{ idea.get_preview(50, false, '')}}
               </div>
@@ -37,6 +37,7 @@
             <!-- /.ideas__item -->
             {% endfor %}
           </ul>
+          {% endfor %}
         </div>
         {% endif %}
 
